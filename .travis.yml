@@ -1,0 +1,14 @@
+language: node_js
+dist: trusty
+node_js:
+  - "6.9"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng build --prod
