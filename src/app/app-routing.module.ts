@@ -11,7 +11,7 @@ import {
 const routes: Routes = [
   {
       path: '',
-      component: HomeComponent,
+      component: MainComponent,
       canActivate: [AuthGuard],
       children:
       [
