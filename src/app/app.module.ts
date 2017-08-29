@@ -5,14 +5,15 @@ import { NgModule } from '@angular/core';
 
 import 'hammerjs';
 
-import { AppMaterialModule } from "./app-material.module";
+import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './guards';
 
 import {
   ApiService,
-  AuthService
+  AuthService,
+  ClientService,
 } from './services';
 
 import { LoginComponent } from './containers/login/login.component';
@@ -36,6 +37,7 @@ import { HomeComponent } from './containers/home/home.component';
   providers: [
     ApiService,
     AuthService,
+    ClientService,
 
     AuthGuard
   ],

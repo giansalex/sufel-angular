@@ -1,3 +1,12 @@
-<p>
-  home works!
-</p>
+<md-card>
+  <button md-button>All</button>
+  <button md-raised-button>Of</button>
+  <button md-raised-button color="primary">The</button>
+  <button md-raised-button color="accent">Buttons</button>
+</md-card>
+
+<span class="done" mdTooltip="Nueva Consulta" [mdTooltipPosition]="'left'">
+  <button md-fab (click)="logout()">
+    <md-icon>add</md-icon>
+  </button>
+</span>

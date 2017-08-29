@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  endpoint: ''
+  endpoint: '',
+  company: '2000000001'
 };

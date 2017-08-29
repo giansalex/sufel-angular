@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  endpoint: ''
+  endpoint: '',
+  company: '2000000001'
 };

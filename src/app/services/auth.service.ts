@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 export class AuthService {
   private JWT_KEY = 'SUFEL_USER';
   private JWT: any;
-  private authUri = '/api/client/login';
+  private authUri = '/api/client/auth';
 
   constructor(
    private router: Router,
@@ -32,7 +32,7 @@ export class AuthService {
     if (!Boolean(this.JWT)) {
       return false;
     }
-    const expire = new Date(this.JWT.Expire);
+    const expire = new Date(this.JWT.Expire * 1000);
 
     return expire > new Date();
   }
