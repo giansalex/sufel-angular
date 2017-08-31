@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  endpoint: '',
-  company: '2000000001'
+  endpoint: 'http://localhost:8080',
+  company: ''
 };

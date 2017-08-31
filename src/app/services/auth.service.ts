@@ -24,7 +24,7 @@ export class AuthService {
     window.localStorage.setItem(this.JWT_KEY, JSON.stringify(jwt));
     this.JWT = jwt;
     this.api.setHeaders({
-        Authorization: `Bearer ${jwt.Token}`
+        Authorization: `Bearer ${jwt.token}`
     });
   }
 
@@ -32,7 +32,9 @@ export class AuthService {
     if (!Boolean(this.JWT)) {
       return false;
     }
-    const expire = new Date(this.JWT.Expire * 1000);
+
+    const expire = new Date(this.JWT.exp * 1000);
+    console.log(expire);
 
     return expire > new Date();
   }

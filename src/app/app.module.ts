@@ -37,7 +37,6 @@ import { HomeComponent } from './containers/home/home.component';
   providers: [
     ApiService,
     AuthService,
-    ClientService,
 
     AuthGuard
   ],

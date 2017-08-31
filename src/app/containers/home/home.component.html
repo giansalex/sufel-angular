@@ -1,12 +1,52 @@
-<md-card>
-  <button md-button>All</button>
-  <button md-raised-button>Of</button>
-  <button md-raised-button color="primary">The</button>
-  <button md-raised-button color="accent">Buttons</button>
-</md-card>
-
 <span class="done" mdTooltip="Nueva Consulta" [mdTooltipPosition]="'left'">
   <button md-fab (click)="logout()">
     <md-icon>add</md-icon>
   </button>
 </span>
+<div *ngIf="!doc" class="sufel-cont-spin">
+    <md-spinner></md-spinner>
+</div>
+<md-card *ngIf="doc">
+  <md-card-header>
+      <div md-card-avatar class="invoice-image"></div>
+    <md-card-title>{{getTipo(doc.tipo)}}</md-card-title>
+    <md-card-subtitle>F001-1212</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <br>
+    <h4>DOCUMENTO</h4>
+    <table class="doc-table">
+        <tbody>
+          <tr>
+            <td>Documento</td>
+            <td>{{doc.serie}}-{{doc.correlativo}}</td>
+          </tr>
+          <tr>
+            <td>Fecha</td>
+            <td>{{doc.fecha|date: 'dd/MM/y'}}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>{{doc.total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    <h4>CLIENTE</h4>
+     <table class="doc-table">
+       <tbody>
+         <tr>
+           <td>Nro. Documento</td>
+           <td>{{doc.cliente_doc}}</td>
+         </tr>
+         <tr>
+            <td>Nombres</td>
+            <td>{{doc.cliente_nombre}}</td>
+          </tr>
+       </tbody>
+     </table>
+  </md-card-content>
+  <md-card-actions>  
+      <button md-raised-button (click)="downloadXml()" color="green"><md-icon>cloud_download</md-icon> XML</button>
+      <button md-raised-button (click)="downloadPdf()" color="warn"><md-icon>cloud_download</md-icon> PDF</button>
+    </md-card-actions>
+</md-card>

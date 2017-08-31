@@ -9,6 +9,7 @@
             <input mdInput
             #rucEmisor
             placeholder="Ruc"
+            minlength="11"
             maxlength="11"
             [(ngModel)]="doc.emisor" name="emisor">
             <md-hint align="end">{{rucEmisor.value.length}} / 11</md-hint>
@@ -24,7 +25,8 @@
           <md-select
           placeholder="Tipo de Documento"
           class="example-full-width i-space text-left"
-          [(ngModel)]="doc.tipoDoc" name="tipo">
+          required
+          [(ngModel)]="doc.tipo" name="tipo">
               <md-option *ngFor="let tip of tipoDocs" [value]="tip.value">
                 {{ tip.viewValue }}
               </md-option>
@@ -48,6 +50,9 @@
         </form>
   </md-card-content>
   <md-card-actions>
-      <button md-button (click)="consult()">Consultar</button>
+      <div class="sufel-cont-spin" [hidden]="!loading">
+          <md-spinner style="height:50px"></md-spinner>
+      </div>
+      <button md-raised-button color="primary" [disabled]="docForm.invalid" (click)="consult()">Consultar</button>
     </md-card-actions>
 </md-card>
