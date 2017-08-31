@@ -4,50 +4,51 @@
     <md-card-subtitle>Complete la información</md-card-subtitle>
   </md-card-header>
   <md-card-content>
-      <form class="example-form" #docForm="ngForm">
-          <md-input-container class="example-full-width" [hidden]="hasCompany">
+    <form class="example-form" #docForm="ngForm">
+        <md-input-container class="sufel-full-width" [hidden]="hasCompany">
+          <input mdInput
+          #rucEmisor
+          placeholder="Ruc"
+          minlength="11"
+          maxlength="11"
+          [(ngModel)]="doc.emisor" name="emisor">
+          <md-hint align="end">{{rucEmisor.value.length}} / 11</md-hint>
+        </md-input-container>
+        <md-input-container class="sufel-full-width">
             <input mdInput
-            #rucEmisor
-            placeholder="Ruc"
-            minlength="11"
-            maxlength="11"
-            [(ngModel)]="doc.emisor" name="emisor">
-            <md-hint align="end">{{rucEmisor.value.length}} / 11</md-hint>
+            required
+            placeholder="Serie-Correlativo"
+            maxlength="13"
+            pattern="^[FB]\w{3}-\d{1,8}$"
+            [(ngModel)]="doc.documento" name="documento">
           </md-input-container>
-          <md-input-container class="example-full-width">
-              <input mdInput
-              required
-              placeholder="Serie-Correlativo"
-              maxlength="13"
-              pattern="^[FB]\w{3}-\d{1,8}$"
-              [(ngModel)]="doc.documento" name="documento">
-            </md-input-container>
-          <md-select
-          placeholder="Tipo de Documento"
-          class="example-full-width i-space text-left"
-          required
-          [(ngModel)]="doc.tipo" name="tipo">
-              <md-option *ngFor="let tip of tipoDocs" [value]="tip.value">
-                {{ tip.viewValue }}
-              </md-option>
-            </md-select>
-          <md-input-container class="example-full-width i-space">
-              <input mdInput
-              required
-              [mdDatepicker]="picker"
-              placeholder="Fecha de Emsión"
-              [(ngModel)]="doc.fecha" name="fecha">
-              <button mdSuffix [mdDatepickerToggle]="picker"></button>
-          </md-input-container>
-          <md-datepicker #picker></md-datepicker>
-          <md-input-container class="example-full-width">
-              <input mdInput
-              required
-              type="number"
-              placeholder="Total"
-              [(ngModel)]="doc.total" name="total">
-          </md-input-container>
-        </form>
+        <md-select
+        placeholder="Tipo de Documento"
+        class="sufel-full-width i-space text-left"
+        required
+        [(ngModel)]="doc.tipo" name="tipo">
+            <md-option *ngFor="let tip of tipoDocs" [value]="tip.value">
+              {{ tip.viewValue }}
+            </md-option>
+          </md-select>
+        <md-input-container class="sufel-full-width i-space">
+            <input mdInput
+            required
+            [mdDatepicker]="picker"
+            [max]="maxDate"
+            placeholder="Fecha de Emsión"
+            [(ngModel)]="doc.fecha" name="fecha">
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+        <md-datepicker #picker></md-datepicker>
+        <md-input-container class="sufel-full-width">
+            <input mdInput
+            required
+            type="number"
+            placeholder="Total"
+            [(ngModel)]="doc.total" name="total">
+        </md-input-container>
+      </form>
   </md-card-content>
   <md-card-actions>
       <div class="sufel-cont-spin" [hidden]="!loading">

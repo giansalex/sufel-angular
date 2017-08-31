@@ -12,6 +12,7 @@ import { MdSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
   hasCompany = false;
   loading = false;
+  maxDate = new Date();
   doc: any = {};
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     public snackBar: MdSnackBar
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (environment.company) {
