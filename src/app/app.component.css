@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 8px 16px;
-  background-color: #673ab7;
+  background-color: #7a51c1;
   color: whitesmoke
 }
 .docs-navbar > .mat-button:last-child {
@@ -28,4 +28,9 @@
 
 .mat-elevation-z6 {
   box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.sufel-head {
+  padding: 0;
+  margin: 0;
 }

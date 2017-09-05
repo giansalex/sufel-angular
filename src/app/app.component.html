@@ -1,16 +1,13 @@
 <nav class="docs-navbar mat-elevation-z6">
-  <a md-button class="docs-button" routerLink="/" aria-label="Angular Material">
-    <img class="docs-angular-logo"
-      src="https://material.angular.io/assets/img/homepage/angular-white-transparent.svg"
-      alt="angular">
-    <span>SUFEL</span>
+  <a md-button class="docs-button" routerLink="/">
+    <img class="docs-angular-logo" [src]="logo"
+      [alt]="product">
+      <span>{{product}}</span>
   </a>
   <div class="flex-spacer"></div>
-  <a md-button class="docs-button" target="_blank" href="https://github.com/giansalex/sufel-angular" aria-label="GitHub Repository">
-    <img class="docs-github-logo"
-      src="https://material.angular.io/assets/img/homepage/github-circle-white-transparent.svg"
-      alt="GitHub">
-    GitHub
+  <a md-button class="docs-button" target="_blank" [href]="companyUrl" aria-label="Tisoluciones de Negocios">
+    <i class="material-icons">business</i>
+    {{ company }}
   </a>
 </nav>
 <div class="body">

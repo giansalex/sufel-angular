@@ -5,6 +5,10 @@
 
 export const environment = {
   production: false,
+  ruc: '',
   endpoint: 'http://localhost:8080',
-  company: ''
+  company: 'GitHub',
+  companyUrl: 'https://github.com/giansalex/sufel',
+  product: 'SUFEL',
+  logo: 'https://www.freeinvoicecreator.com/assets/images/feature-icon2.png',
 };

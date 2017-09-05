@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   maxDate = new Date();
   doc: any = {};
+  logo= environment.logo;
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
     {value: '03', viewValue: 'Boleta'},
@@ -28,9 +29,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (environment.company) {
+    if (environment.ruc) {
       this.hasCompany = true;
-      this.doc.emisor = environment.company;
+      this.doc.emisor = environment.ruc;
     }
   }
 
