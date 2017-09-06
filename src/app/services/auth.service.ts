@@ -33,7 +33,7 @@ export class AuthService {
       return false;
     }
 
-    const expire = new Date(this.JWT.exp * 1000);
+    const expire = new Date(this.JWT.expire * 1000);
     console.log(expire);
 
     return expire > new Date();
