@@ -6,7 +6,7 @@
   </md-card-header>
   <md-card-content>
     <form class="example-form" #docForm="ngForm">
-        <md-input-container class="sufel-full-width" [hidden]="hasCompany">
+        <md-form-field class="sufel-full-width" [hidden]="hasCompany">
           <input mdInput
           #rucEmisor
           placeholder="Ruc"
@@ -14,15 +14,15 @@
           maxlength="11"
           [(ngModel)]="doc.emisor" name="emisor">
           <md-hint align="end">{{rucEmisor.value.length}} / 11</md-hint>
-        </md-input-container>
-        <md-input-container class="sufel-full-width">
+        </md-form-field>
+        <md-form-field class="sufel-full-width">
             <input mdInput
             required
             placeholder="Serie-Correlativo"
             maxlength="13"
             pattern="^[FB]\w{3}-\d{1,8}$"
             [(ngModel)]="doc.documento" name="documento">
-          </md-input-container>
+          </md-form-field>
         <md-select
         placeholder="Tipo de Documento"
         class="sufel-full-width i-space text-left"
@@ -32,23 +32,23 @@
               {{ tip.viewValue }}
             </md-option>
           </md-select>
-        <md-input-container class="sufel-full-width i-space">
-            <input mdInput
-            required
-            [mdDatepicker]="picker"
-            [max]="maxDate"
-            placeholder="Fecha de Emsión"
-            [(ngModel)]="doc.fecha" name="fecha">
-            <button mdSuffix [mdDatepickerToggle]="picker"></button>
-        </md-input-container>
-        <md-datepicker #picker></md-datepicker>
-        <md-input-container class="sufel-full-width">
+        <md-form-field class="sufel-full-width i-space">
+          <input mdInput
+          required
+          [mdDatepicker]="picker"
+          [max]="maxDate"
+          placeholder="Fecha de Emsión"
+          [(ngModel)]="doc.fecha" name="fecha">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+          <md-datepicker #picker></md-datepicker>
+        </md-form-field>
+        <md-form-field class="sufel-full-width">
             <input mdInput
             required
             type="number"
             placeholder="Total"
             [(ngModel)]="doc.total" name="total">
-        </md-input-container>
+        </md-form-field>
       </form>
   </md-card-content>
   <md-card-actions>
