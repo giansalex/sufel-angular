@@ -32,9 +32,7 @@ export class AuthService {
     if (!Boolean(this.JWT)) {
       return false;
     }
-
     const expire = new Date(this.JWT.expire * 1000);
-    console.log(expire);
 
     return expire > new Date();
   }
