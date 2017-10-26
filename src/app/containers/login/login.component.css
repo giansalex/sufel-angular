@@ -1,11 +1,11 @@
-md-card {
+mat-card {
   max-width: 35%;
   margin: 2em auto;
   text-align: center;
 }
 
 @media only screen and (max-width: 700px) {
-  md-card {
+  mat-card {
     max-width: 80%;
   }
 }
@@ -34,10 +34,13 @@ md-card {
   background-size: cover;
 }
 
-md-card-header {
+mat-card-header {
   text-align: left;
 }
 
-md-card-title {
+mat-form-field {
+  width: 100%;
+}
+mat-card-title {
   font-size: 20px;
 }

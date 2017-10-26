@@ -10,11 +10,11 @@ h4 {
   text-align: left;
 }
 
-md-card-content {
+mat-card-content {
   padding: 0 10px 40px 10px;
 }
 
-md-card {
+mat-card {
   max-width: 40%;
   margin: 2em auto;
   text-align: center;
@@ -31,7 +31,7 @@ table.doc-table td:nth-child(1) {
 }
 
 @media only screen and (max-width: 700px) {
-  md-card {
+  mat-card {
     max-width: 80%;
   }
   table.doc-table td:nth-child(2) {
@@ -48,7 +48,7 @@ table.doc-table td:nth-child(1) {
   color: #fff;
 }
 
-md-card-subtitle {
+mat-card-subtitle {
   text-align: left;
 }
 

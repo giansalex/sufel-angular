@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +8,7 @@ import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
 })
 export class MainComponent implements OnInit {
 
-    isDarkTheme: boolean = false;
+    isDarkTheme = false;
   lastDialogResult: string;
 
   foods: any[] = [
@@ -17,15 +17,15 @@ export class MainComponent implements OnInit {
     {name: 'French fries', rating: 'Pretty good'},
   ];
 
-  progress: number = 0;
+  progress = 0;
 
-  constructor(private _snackbar: MdSnackBar) {
+  constructor(private _snackbar: MatSnackBar) {
     // Update the value for the progress-bar on an interval.
     setInterval(() => {
       this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
     }, 200);
   }
-  
+
   ngOnInit() {
   }
 

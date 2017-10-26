@@ -1,18 +1,18 @@
-<span class="done" mdTooltip="Nueva Consulta" [mdTooltipPosition]="'left'">
-  <button md-fab (click)="logout()">
-    <md-icon>add</md-icon>
+<span class="done" matTooltip="Nueva Consulta" [matTooltipPosition]="'left'">
+  <button mat-fab (click)="logout()">
+    <mat-icon>add</mat-icon>
   </button>
 </span>
 <div *ngIf="!doc" class="sufel-cont-spin">
-    <md-spinner></md-spinner>
+    <mat-spinner></mat-spinner>
 </div>
-<md-card *ngIf="doc">
-  <md-card-header>
-      <div md-card-avatar class="invoice-image"></div>
-    <md-card-title>{{getTipo(doc.tipo)}}</md-card-title>
-    <md-card-subtitle>{{doc.serie}}-{{doc.correlativo}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card *ngIf="doc">
+  <mat-card-header>
+      <div mat-card-avatar class="invoice-image"></div>
+    <mat-card-title>{{getTipo(doc.tipo)}}</mat-card-title>
+    <mat-card-subtitle>{{doc.serie}}-{{doc.correlativo}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <br>
     <h4>DOCUMENTO</h4>
     <table class="doc-table">
@@ -44,9 +44,9 @@
           </tr>
        </tbody>
      </table>
-  </md-card-content>
-  <md-card-actions>  
-      <button md-raised-button (click)="downloadXml()" color="green"><md-icon>cloud_download</md-icon> XML</button>
-      <button md-raised-button (click)="downloadPdf()" color="warn"><md-icon>cloud_download</md-icon> PDF</button>
-    </md-card-actions>
-</md-card>
+  </mat-card-content>
+  <mat-card-actions>  
+      <button mat-raised-button (click)="downloadXml()" color="green"><mat-icon>cloud_download</mat-icon> XML</button>
+      <button mat-raised-button (click)="downloadPdf()" color="warn"><mat-icon>cloud_download</mat-icon> PDF</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,60 +1,62 @@
-<md-card>
-  <md-card-header>
-    <div md-card-avatar class="image-cover" [ngStyle]="{'background-image': 'url(' + logo + ')'}"></div>
-    <md-card-title [ngStyle]="{'font-size': '18px'}">Consulta de Comprobante Electrónico</md-card-title>
-    <md-card-subtitle>Complete la información</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="image-cover" [ngStyle]="{'background-image': 'url(' + logo + ')'}"></div>
+    <mat-card-title [ngStyle]="{'font-size': '18px'}">Consulta de Comprobante Electrónico</mat-card-title>
+    <mat-card-subtitle>Complete la información</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <form class="example-form" #docForm="ngForm">
-        <md-form-field class="sufel-full-width" [hidden]="hasCompany">
-          <input mdInput
+        <mat-form-field class="sufel-full-width" [hidden]="hasCompany">
+          <input matInput
           #rucEmisor
           placeholder="Ruc"
           minlength="11"
           maxlength="11"
           [(ngModel)]="doc.emisor" name="emisor">
-          <md-hint align="end">{{rucEmisor.value.length}} / 11</md-hint>
-        </md-form-field>
-        <md-form-field class="sufel-full-width">
-            <input mdInput
+          <mat-hint align="end">{{rucEmisor.value.length}} / 11</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+            <input matInput
             required
             placeholder="Serie-Correlativo"
             maxlength="13"
             pattern="^[FB]\w{3}-\d{1,8}$"
             [(ngModel)]="doc.documento" name="documento">
-          </md-form-field>
-        <md-select
-        placeholder="Tipo de Documento"
-        class="sufel-full-width i-space text-left"
-        required
-        [(ngModel)]="doc.tipo" name="tipo">
-            <md-option *ngFor="let tip of tipoDocs" [value]="tip.value">
-              {{ tip.viewValue }}
-            </md-option>
-          </md-select>
-        <md-form-field class="sufel-full-width i-space">
-          <input mdInput
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select
+            placeholder="Tipo de Documento"
+            class="sufel-full-width i-space text-left"
+            required
+            [(ngModel)]="doc.tipo" name="tipo">
+                <mat-option *ngFor="let tip of tipoDocs" [value]="tip.value">
+                  {{ tip.viewValue }}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+        <mat-form-field class="sufel-full-width i-space">
+          <input matInput
           required
-          [mdDatepicker]="picker"
+          [matDatepicker]="picker"
           [max]="maxDate"
           placeholder="Fecha de Emsión"
           [(ngModel)]="doc.fecha" name="fecha">
-          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-          <md-datepicker #picker></md-datepicker>
-        </md-form-field>
-        <md-form-field class="sufel-full-width">
-            <input mdInput
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+            <input matInput
             required
             type="number"
             placeholder="Total"
             [(ngModel)]="doc.total" name="total">
-        </md-form-field>
+        </mat-form-field>
       </form>
-  </md-card-content>
-  <md-card-actions>
+  </mat-card-content>
+  <mat-card-actions>
       <div class="sufel-cont-spin" [hidden]="!loading">
-          <md-spinner style="height:50px"></md-spinner>
+          <mat-spinner style="height:50px"></mat-spinner>
       </div>
-      <button md-raised-button color="primary" [disabled]="docForm.invalid" (click)="consult()">Consultar</button>
-    </md-card-actions>
-</md-card>
+      <button mat-raised-button color="primary" [disabled]="docForm.invalid" (click)="consult()">Consultar</button>
+    </mat-card-actions>
+</mat-card>

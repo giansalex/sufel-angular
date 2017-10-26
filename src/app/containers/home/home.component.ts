@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService, AuthService, FileSaverService } from '../../services';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     private auth: AuthService,
     private client: ClientService,
     private saver: FileSaverService,
-    public snackBar: MdSnackBar
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
