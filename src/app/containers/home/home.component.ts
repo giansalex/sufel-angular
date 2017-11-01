@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client.getDocument('info')
+    this.client.getInfo()
       .subscribe(
         r => this.doc = r,
         er => {
@@ -28,29 +28,29 @@ export class HomeComponent implements OnInit {
 
   downloadXml() {
     if (this.doc.xmlFile) {
-      this.saveFile(this.doc.xmlFile, 'text/xml');
+      this.saveFile(this.doc.xmlFile);
       return;
     }
 
     this.openSnackBar('Descargando XML');
-    this.client.getDocument('xml')
+    this.client.getXml()
     .subscribe(f => {
-      this.doc.xmlFile = f.xml;
-      this.saveFile(f.xml, 'text/xml');
+      this.doc.xmlFile = f;
+      this.saveFile(f);
     });
   }
 
   downloadPdf() {
     if (this.doc.pdfFile) {
-      this.saveFile(this.doc.pdfFile, 'application/pdf');
+      this.saveFile(this.doc.pdfFile);
       return;
     }
 
     this.openSnackBar('Descargando PDF');
-    this.client.getDocument('pdf')
+    this.client.getPdf()
     .subscribe(f => {
-      this.doc.pdfFile = f.pdf;
-      this.saveFile(f.pdf, 'application/pdf');
+      this.doc.pdfFile = f;
+      this.saveFile(f);
     });
   }
 
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private saveFile(file, type) {
-    this.saver.save64(file, this.doc.filename, type);
+  private saveFile(file) {
+    this.saver.saveAs(file, this.doc.filename);
   }
 }

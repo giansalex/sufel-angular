@@ -8,7 +8,15 @@ export class ClientService {
     private api: ApiService
   ) {}
 
-  getDocument(query: string) {
-    return this.api.get('/api/client/document?query=' + query);
+  getInfo() {
+    return this.api.get('/api/client/document/info');
+  }
+
+  getXml() {
+    return this.api.getFile('/api/client/document/xml');
+  }
+
+  getPdf() {
+    return this.api.getFile('/api/client/document/pdf');
   }
 }
