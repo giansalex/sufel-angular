@@ -32,6 +32,7 @@ mat-card {
 
 .image-cover {
   background-size: cover;
+  background-image: url('../../../assets/img/invoice.png');
 }
 
 mat-card-header {

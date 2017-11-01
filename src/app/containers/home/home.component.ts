@@ -19,7 +19,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.client.getDocument('info')
-      .subscribe(r => this.doc = r);
+      .subscribe(
+        r => this.doc = r,
+        er => {
+          this.logout();
+        });
   }
 
   downloadXml() {
