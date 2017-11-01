@@ -20,6 +20,20 @@ export class ApiService {
     );
   }
 
+  getFile(path: string): Observable<Blob> {
+    return this.http.get(
+            `${this.apiEndpoint}${path}`,
+            {headers: this.headers, responseType: 'blob', observe: 'response'}
+    )
+    .map(r => {
+      const options = {};
+      if (r.headers.has('content-type')) {
+        options['type'] = r.headers.get('content-type');
+      }
+      return new Blob([r.body], options);
+    });
+  }
+
   post(path, body): Observable<any> {
     return this.http.post(
         `${this.apiEndpoint}${path}`,

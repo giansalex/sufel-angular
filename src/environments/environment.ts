@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   ruc: '',
-  endpoint: 'http://localhost:8080',
+  endpoint: 'http://localhost:8090',
   company: 'GitHub',
   companyUrl: 'https://github.com/giansalex/sufel',
   product: 'SUFEL',
