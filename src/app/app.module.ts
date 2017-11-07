@@ -19,6 +19,7 @@ import {
 import { LoginComponent } from './containers/login/login.component';
 import { MainComponent } from './containers/main/main.component';
 import { HomeComponent } from './containers/home/home.component';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HomeComponent } from './containers/home/home.component';
     ApiService,
     AuthService,
 
-    AuthGuard
+    AuthGuard,
+    {provide: MAT_DATE_LOCALE, useValue: 'es-PE'},
   ],
   bootstrap: [AppComponent]
 })

@@ -42,7 +42,7 @@
           placeholder="Fecha de Emsión"
           [(ngModel)]="doc.fecha" name="fecha">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker touchUi="true" #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field class="sufel-full-width">
             <input matInput
