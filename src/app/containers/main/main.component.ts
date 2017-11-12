@@ -8,29 +8,9 @@ import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 })
 export class MainComponent implements OnInit {
 
-    isDarkTheme = false;
-  lastDialogResult: string;
-
-  foods: any[] = [
-    {name: 'Pizza', rating: 'Excellent'},
-    {name: 'Burritos', rating: 'Great'},
-    {name: 'French fries', rating: 'Pretty good'},
-  ];
-
-  progress = 0;
-
-  constructor(private _snackbar: MatSnackBar) {
-    // Update the value for the progress-bar on an interval.
-    setInterval(() => {
-      this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
-    }, 200);
+  constructor() {
   }
 
   ngOnInit() {
   }
-
-  showSnackbar() {
-    this._snackbar.open('YUM SNACKS', 'CHEW');
-  }
-
 }
