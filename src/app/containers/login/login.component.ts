@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
 import { environment } from '../../../environments/environment';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, DateAdapter } from '@angular/material';
+import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [{provide: DateAdapter, useClass: SpainDateAdapter}]
 })
 export class LoginComponent implements OnInit {
   hasCompany = false;
@@ -25,8 +27,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    public snackBar: MatSnackBar
-  ) {}
+    public snackBar: MatSnackBar,
+    private dateAdapter: DateAdapter<Date>
+  ) {
+    this.dateAdapter.setLocale('es');
+  }
 
   ngOnInit() {
     if (environment.ruc) {

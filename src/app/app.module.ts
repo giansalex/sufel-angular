@@ -39,8 +39,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     ApiService,
     AuthService,
 
-    AuthGuard,
-    {provide: MAT_DATE_LOCALE, useValue: 'es-PE'},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
