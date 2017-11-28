@@ -9,7 +9,7 @@
 <mat-card *ngIf="doc">
   <mat-card-header>
       <div mat-card-avatar class="invoice-image"></div>
-    <mat-card-title>{{getTipo(doc.tipo)}}</mat-card-title>
+    <mat-card-title>{{getTipo(doc.tipo)}} <span [hidden]="!doc.baja" style="color: red">(Anulado)</span></mat-card-title>
     <mat-card-subtitle>{{doc.serie}}-{{doc.correlativo}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

@@ -1,5 +1,7 @@
 import { NativeDateAdapter } from '@angular/material';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class SpainDateAdapter extends NativeDateAdapter {
   parse(value: any): Date | null {
     if ((typeof value === 'string') && (value.indexOf('/') > -1)) {
