@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
       this.hasCompany = true;
       this.doc.emisor = environment.ruc;
     }
+    this.doc.tipo = '01';
+    this.doc.fecha = new Date();
   }
 
   consult() {

@@ -21,6 +21,7 @@
             placeholder="Serie-Correlativo"
             maxlength="13"
             pattern="^[FB]\w{3}-\d{1,8}$"
+            (change)="doc.documento=doc.documento.toUpperCase()"
             [(ngModel)]="doc.documento" name="documento">
           </mat-form-field>
           <mat-form-field>
