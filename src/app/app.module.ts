@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { NbThemeModule } from '@nebular/theme';
 
 import 'hammerjs';
 
@@ -26,12 +27,13 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     AppComponent,
     LoginComponent,
     MainComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NbThemeModule.forRoot({ name: 'default' }),
     AppRoutingModule,
     AppMaterialModule
   ],

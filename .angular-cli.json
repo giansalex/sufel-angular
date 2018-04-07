@@ -21,7 +21,9 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "theme.scss"
+        "theme.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/@nebular/theme/styles/prebuilt/default.css"
       ],
       "scripts": [
         "../node_modules/file-saver/FileSaver.js"
