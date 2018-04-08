@@ -1,9 +1,17 @@
-<nb-layout>
-  <nb-layout-header fixed>Company Name</nb-layout-header>
+<nb-layout windowMode>
+  <nb-layout-header fixed>
+    <span class="header">Sufel</span>
+    <button type="button" class="btn btn-danger btn-icon btn-logout">
+      <i class="material-icons">reply</i>
+    </button>
+  </nb-layout-header>
+  <nb-sidebar class="menu-sidebar"
+               tag="menu-sidebar"
+               responsive>
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
 
-  <nb-sidebar>Sidebar Content</nb-sidebar>
-
-  <nb-layout-column>
+  <nb-layout-column class="main-content">
     <router-outlet></router-outlet>
   </nb-layout-column>
 </nb-layout>
