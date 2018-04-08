@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService, AuthService, FileSaverService } from '../../services';
+import { DocumentService, AuthService, FileSaverService } from '../../services';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home',
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.css'],
-  providers: [ClientService, FileSaverService]
+  providers: [DocumentService, FileSaverService]
 })
 export class DocumentComponent implements OnInit {
   doc: any;
   constructor(
     private auth: AuthService,
-    private client: ClientService,
+    private client: DocumentService,
     private saver: FileSaverService,
     public snackBar: MatSnackBar
   ) { }

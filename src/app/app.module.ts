@@ -14,13 +14,13 @@ import { AuthGuard } from './guards';
 import {
   ApiService,
   AuthService,
-  ClientService,
 } from './services';
 
 import {
-  MainComponent,
-  LoginComponent,
   DocumentComponent,
+  HomeComponent,
+  LoginComponent,
+  MainComponent,
 } from "./containers";
 
 import { MAT_DATE_LOCALE } from '@angular/material';
@@ -28,9 +28,10 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
+    DocumentComponent,
+    HomeComponent,
     LoginComponent,
     MainComponent,
-    DocumentComponent,
   ],
   imports: [
     BrowserModule,

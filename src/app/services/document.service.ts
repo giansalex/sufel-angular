@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 
 @Injectable()
-export class ClientService {
+export class DocumentService {
 
   constructor(
     private api: ApiService
   ) {}
 
   getInfo() {
-    return this.api.get('/api/client/document/info');
+    return this.api.get('/api/document/resource/info');
   }
 
   getXml() {
-    return this.api.getFile('/api/client/document/xml');
+    return this.api.getFile('/api/document/resource/xml');
   }
 
   getPdf() {
-    return this.api.getFile('/api/client/document/pdf');
+    return this.api.getFile('/api/document/resource/pdf');
   }
 }

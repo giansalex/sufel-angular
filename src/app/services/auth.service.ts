@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 export class AuthService {
   private JWT_KEY = 'SUFEL_USER';
   private JWT: any;
-  private authUri = '/api/client/auth';
+  private authUri = '/api/document/auth';
 
   constructor(
    private router: Router,

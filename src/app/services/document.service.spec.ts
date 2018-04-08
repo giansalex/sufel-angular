@@ -1,20 +1,20 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ClientService } from './client.service';
+import { DocumentService } from './document.service';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('ClientService', () => {
+describe('DocumentService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule
       ],
-      providers: [ApiService, ClientService]
+      providers: [ApiService, DocumentService]
     });
   });
 
-  it('should be created', inject([ClientService], (service: ClientService) => {
+  it('should be created', inject([DocumentService], (service: DocumentService) => {
     expect(service).toBeTruthy();
   }));
 });
