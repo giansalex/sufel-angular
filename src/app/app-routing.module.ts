@@ -7,6 +7,7 @@ import {
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'client', loadChildren: 'app/client/client.module#ClientModule'},
   { path: 'document', loadChildren: 'app/document/document.module#DocumentModule'},
   { path: '**', redirectTo: ''}
 ];
