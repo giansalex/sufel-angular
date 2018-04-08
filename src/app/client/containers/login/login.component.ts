@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   private handleError(er) {
-    if (er.error!.message) {
+    if (er.error && er.error.message) {
       this.showError(er.error.message);
       return;
     }

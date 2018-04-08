@@ -1,6 +1,19 @@
 .header {
     font-size: 2rem;
 }
-.btn-logout {
-    float: right;
+.ico-logout {
+    font-size: 40px;
+}
+.logout {
+    cursor: pointer;
+}
+.right {
+    order: 1;
+    flex-direction: row-reverse;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }

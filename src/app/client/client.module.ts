@@ -8,6 +8,7 @@ import {
   NbSidebarService,
   NbCardModule,
   NbMenuModule,
+  NbActionsModule,
 } from '@nebular/theme';
 
 import { AppMaterialModule } from '../app-material.module';
@@ -30,6 +31,7 @@ import {
     NbSidebarModule,
     NbCardModule,
     NbMenuModule,
+    NbActionsModule,
     Ng2SmartTableModule,
 
     AppMaterialModule,

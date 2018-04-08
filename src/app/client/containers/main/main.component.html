@@ -1,9 +1,11 @@
 <nb-layout windowMode>
   <nb-layout-header fixed>
     <span class="header">Sufel</span>
-    <button type="button" class="btn btn-danger btn-icon btn-logout">
-      <i class="material-icons">reply</i>
-    </button>
+    <div class="header-container right">
+      <span class="text-danger logout" (click)="logout()">
+          <i class="material-icons ico-logout">reply_all</i>
+      </span>
+    </div>
   </nb-layout-header>
   <nb-sidebar class="menu-sidebar"
                tag="menu-sidebar"

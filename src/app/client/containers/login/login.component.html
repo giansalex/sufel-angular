@@ -12,6 +12,7 @@
           placeholder="Ruc"
           minlength="11"
           maxlength="11"
+          required
           [(ngModel)]="client.documento" name="ruc">
           <mat-hint align="end">{{rucClient.value.length}} / 11</mat-hint>
         </mat-form-field>
@@ -20,6 +21,7 @@
           placeholder="Contraseña"
           [type]="hide ? 'password' : 'text'"
           maxlength="8"
+          required
           [(ngModel)]="client.password" name="password">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
