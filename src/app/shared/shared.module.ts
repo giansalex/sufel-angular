@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppMaterialModule } from './../app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ApiService } from "./services/api.service";
+import { ApiService, FileSaverService } from "./services";
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { ApiService } from "./services/api.service";
   ],
   declarations: [NavbarComponent],
   exports: [NavbarComponent],
-  providers: [ApiService]
+  providers: [ApiService, FileSaverService]
 })
 export class SharedModule { }

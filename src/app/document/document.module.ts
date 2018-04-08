@@ -6,7 +6,7 @@ import { AppMaterialModule } from './../app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { DocumentRoutingModule } from './document-routing.module';
 import { AuthGuard } from './guards';
-import { AuthService } from './services';
+import { AuthService, DocumentService } from './services';
 import {
   DocumentComponent,
   LoginComponent,
@@ -28,9 +28,9 @@ import {
     MainComponent,
   ],
   providers: [
-    AuthService,
-    
     AuthGuard,
+    AuthService,
+    DocumentService,
   ],
 })
 export class DocumentModule { }

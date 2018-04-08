@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DocumentService, AuthService, FileSaverService } from '../../services';
+import { DocumentService, AuthService } from '../../services';
 import { MatSnackBar } from '@angular/material';
+import { FileSaverService } from '../../../shared/services';
 
 @Component({
   selector: 'app-home',
   templateUrl: './document.component.html',
-  styleUrls: ['./document.component.css'],
-  providers: [DocumentService, FileSaverService]
+  styleUrls: ['./document.component.css']
 })
 export class DocumentComponent implements OnInit {
   doc: any;
