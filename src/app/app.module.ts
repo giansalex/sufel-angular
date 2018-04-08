@@ -17,9 +17,12 @@ import {
   ClientService,
 } from './services';
 
-import { LoginComponent } from './containers/login/login.component';
-import { MainComponent } from './containers/main/main.component';
-import { HomeComponent } from './containers/home/home.component';
+import {
+  MainComponent,
+  LoginComponent,
+  DocumentComponent,
+} from "./containers";
+
 import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
@@ -27,7 +30,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     AppComponent,
     LoginComponent,
     MainComponent,
-    HomeComponent,
+    DocumentComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,13 +38,13 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     HttpClientModule,
     NbThemeModule.forRoot({ name: 'default' }),
     AppRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
   ],
   providers: [
     ApiService,
     AuthService,
 
-    AuthGuard
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

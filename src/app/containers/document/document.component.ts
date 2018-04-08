@@ -4,11 +4,11 @@ import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  templateUrl: './document.component.html',
+  styleUrls: ['./document.component.css'],
   providers: [ClientService, FileSaverService]
 })
-export class HomeComponent implements OnInit {
+export class DocumentComponent implements OnInit {
   doc: any;
   constructor(
     private auth: AuthService,

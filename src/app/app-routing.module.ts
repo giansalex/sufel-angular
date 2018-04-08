@@ -5,7 +5,7 @@ import { AuthGuard } from './guards';
 import {
   MainComponent,
   LoginComponent,
-  HomeComponent
+  DocumentComponent
 } from "./containers";
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
       canActivate: [AuthGuard],
       children:
       [
-          { path: '', component: HomeComponent }
+          { path: '', component: DocumentComponent }
       ]
   },
   { path: 'login', component: LoginComponent },
