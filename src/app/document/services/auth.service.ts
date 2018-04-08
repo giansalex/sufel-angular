@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { ApiService } from './api.service';
+import { ApiService } from './../../shared/services';
 
 @Injectable()
 export class AuthService {
@@ -46,6 +46,6 @@ export class AuthService {
   signOut() {
     window.localStorage.removeItem(this.JWT_KEY);
     this.JWT = null;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/document/login']);
   }
 }

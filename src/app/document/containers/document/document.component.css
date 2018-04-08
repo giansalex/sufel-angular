@@ -53,6 +53,6 @@ mat-card-subtitle {
 }
 
 .invoice-image {
-  background-image: url('../../../assets/img/invoice.png');
+  background-image: url('../../../../assets/img/invoice.png');
   background-size: cover;
 }

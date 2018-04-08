@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { MatSnackBar, DateAdapter } from '@angular/material';
 import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
 
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.auth.login(this.doc)
     .subscribe(r => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/document']);
     }, er => this.showError('No se encontro resultados.'))
     .add(() => this.loading = false);
   }

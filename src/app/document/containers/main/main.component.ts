@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-main',
@@ -8,9 +7,9 @@ import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 })
 export class MainComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }
+
 }
