@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NbSidebarModule, NbLayoutModule, NbSidebarService } from '@nebular/theme';
 
 import { AppMaterialModule } from '../app-material.module';
@@ -17,6 +18,7 @@ import {
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     NbLayoutModule,
     NbSidebarModule,
 

@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './../app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ApiService, FileSaverService } from "./services";
+import { UppercaseDirective } from './directives/uppercase.directive';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { ApiService, FileSaverService } from "./services";
 
     AppMaterialModule,
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent],
+  declarations: [NavbarComponent, UppercaseDirective],
+  exports: [NavbarComponent, UppercaseDirective],
   providers: [ApiService, FileSaverService]
 })
 export class SharedModule { }
