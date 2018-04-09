@@ -1,0 +1,23 @@
+<nb-layout windowMode>
+  <nb-layout-header fixed>
+    <a href="#" (click)="toggleSidebar()" class="navigation"><i class="nb-menu"></i></a>
+    <span class="logo header">{{product}}</span>
+    <div class="header-container right">
+      <span class="text-danger logout" (click)="logout()" title="Salir">
+          <i class="material-icons ico-logout">reply_all</i>
+      </span>
+    </div>
+  </nb-layout-header>
+  <nb-sidebar class="menu-sidebar"
+               tag="menu-sidebar"
+               responsive>
+    <nb-sidebar-header>
+      <span class="center menu-header">RUC: {{ruc}}</span>
+    </nb-sidebar-header>
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column class="main-content">
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout>

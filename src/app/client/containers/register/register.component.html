@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div>
+<mat-card class="sufel-form">
+  <mat-card-header>
+    <span class="center">Registrarse</span>
+  </mat-card-header>
+  <mat-card-content>
+    <form #clientForm="ngForm">
+        <mat-form-field class="sufel-full-width">
+          <input matInput
+          #rucClient
+          placeholder="Ruc"
+          minlength="11"
+          maxlength="11"
+          required
+          [(ngModel)]="client.documento" name="ruc">
+          <mat-hint align="end">{{rucClient.value.length}} / 11</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+          <input matInput
+          placeholder="Razón Social"
+          maxlength="100"
+          required
+          [(ngModel)]="client.nombres" name="nombres">
+        </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+          <input matInput
+          placeholder="Usuario SOL"
+          maxlength="8"
+          minlength="8"
+          appUppercase
+          required
+          [(ngModel)]="client.usuario_sol" name="user_sol">
+        </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+          <input matInput
+            placeholder="Ingrese Contraseña"
+            [type]="hide ? 'password' : 'text'"
+            maxlength="8"
+            required
+            [(ngModel)]="client.password" name="password">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        <mat-form-field class="sufel-full-width">
+          <input matInput
+            type="password"
+            maxlength="8"
+            required
+            placeholder="Repetir Contraseña"
+            [(ngModel)]="client.repeat_password" name="repeat_password">
+        </mat-form-field>
+      </form>
+  </mat-card-content>
+  <mat-card-actions>
+      <div class="sufel-cont-spin" [hidden]="!loading">
+          <mat-spinner style="height:50px"></mat-spinner>
+      </div>
+      <button mat-raised-button color="primary" (click)="register()">Crear Cuenta</button>
+    </mat-card-actions>
+</mat-card>
+</div>

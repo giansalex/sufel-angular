@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { AppMaterialModule } from '../../app-material.module';
-import { ApiService, AuthService } from '../../services';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../../shared/shared.module';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,12 +14,13 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         RouterTestingModule,
         HttpClientModule,
-        AppMaterialModule
+        AppMaterialModule,
+        SharedModule,
       ],
-      declarations: [ HomeComponent ],
-      providers: [ApiService, AuthService]
+      declarations: [ HomeComponent ]
     })
     .compileComponents();
   }));
@@ -29,7 +31,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

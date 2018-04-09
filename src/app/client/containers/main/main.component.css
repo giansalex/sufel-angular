@@ -1,0 +1,49 @@
+.header {
+    font-size: 2rem;
+}
+.ico-logout {
+    font-size: 40px;
+}
+.logout {
+    cursor: pointer;
+}
+.right {
+    order: 1;
+    flex-direction: row-reverse;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation {
+    padding-right: 10px;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.navigation i {
+    display: block;
+}
+
+.logo {
+    padding: 0 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-left: 1px solid #ebeef2;
+    white-space: nowrap;
+}
+
+nb-sidebar-header {
+    text-align: center;
+}
+
+.menu-header {
+    font-weight: bold;
+}
+
+nb-sidebar.menu-sidebar.compacted .menu-header {
+    display: none;
+}

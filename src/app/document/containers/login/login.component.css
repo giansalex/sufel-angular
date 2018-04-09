@@ -1,0 +1,28 @@
+.text-left {
+  text-align: left;
+}
+
+.i-space {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+[hidden] {
+  display: none;
+}
+
+.image-cover {
+  background-size: cover;
+  background-image: url('../../../../assets/img/invoice.png');
+}
+
+mat-card-header {
+  text-align: left;
+}
+
+mat-form-field {
+  width: 100%;
+}
+mat-card-title {
+  font-size: 20px;
+}

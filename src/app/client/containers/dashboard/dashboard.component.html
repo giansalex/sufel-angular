@@ -1,0 +1,89 @@
+<nb-card>
+  <nb-card-header>
+    Filtro
+  </nb-card-header>
+  <nb-card-body>
+    <form class="sufel-form" #filterForm="ngForm">
+      <div class="row">
+        <div class="col-md-12">
+            <input type="text"
+            class="form-control full-width"
+            placeholder="Ruc emisor"
+            [(ngModel)]="filter.emisor" name="emisor">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Tipo Documento</label>
+            <select class="form-control"
+            [(ngModel)]="filter.tipoDoc" name="tipoDoc">
+              <option value="">Todos</option>
+              <option *ngFor="let tipo of tipoDocs" value="{{tipo.value}}">{{tipo.viewValue}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Serie</label>
+            <input type="text"
+            class="form-control"
+            placeholder="F001"
+            [(ngModel)]="filter.serie" name="serie">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Correlativo</label>
+            <input type="text"
+             class="form-control"
+             placeholder="00000001"
+             [(ngModel)]="filter.correlativo" name="correlativo">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Fecha Inicio</label>
+              <input type="date"
+              class="form-control"
+              required
+              [ngModel]="filter.start | date:'yyyy-MM-dd'"
+              (ngModelChange)="filter.start = $event" name="start">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Fecha Fin</label>
+              <input type="date"
+              class="form-control"
+              required
+              [ngModel]="filter.end | date:'yyyy-MM-dd'"
+              (ngModelChange)="filter.end = $event" name="end">
+            </div>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="search()">Buscar</button>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>
+    Resultados
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="data" (rowSelect)="onSelect($event)"></ng2-smart-table>
+  </nb-card-body>
+  <nb-card-footer>
+      <button class="btn btn-success" (click)="downloadXml()">
+        <i class="material-icons i-files">cloud_download</i>
+        <span class="lbl-files">XML</span>
+      </button>
+      <button class="btn btn-danger" (click)="downloadPdf()">
+        <i class="material-icons i-files">cloud_download</i>
+        <span class="lbl-files">PDF</span>
+      </button>
+  </nb-card-footer>
+</nb-card>

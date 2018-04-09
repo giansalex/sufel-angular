@@ -10,3 +10,23 @@ body {
   display: table;
   padding-bottom: 20px;
 }
+
+.sufel-full-width {
+  width: 100%;
+}
+
+mat-card.sufel-form {
+  max-width: 35%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  mat-card.sufel-form {
+    max-width: 80%;
+  }
+}
+
+.center {
+  margin: 0 auto;
+}

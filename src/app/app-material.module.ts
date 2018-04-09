@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
@@ -18,7 +17,6 @@ import {
 
 @NgModule({
 imports: [
-  BrowserAnimationsModule,
   MatButtonModule,
   MatCardModule,
   MatChipsModule,
@@ -33,7 +31,6 @@ imports: [
   MatTooltipModule,
 ],
 exports: [
-  BrowserAnimationsModule,
   MatButtonModule,
   MatCardModule,
   MatChipsModule,

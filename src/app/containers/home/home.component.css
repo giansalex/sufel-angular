@@ -1,58 +1,9 @@
-.done {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: white;
-}
-
-h4 {
-  color: gray;
-  text-align: left;
-}
-
-mat-card-content {
-  padding: 0 10px 40px 10px;
-}
-
 mat-card {
-  max-width: 40%;
-  margin: 2em auto;
-  text-align: center;
+    max-width: 40%;
+    margin: 2em auto;
+    text-align: center;
 }
-
-table.doc-table td:nth-child(1) {
-  font-weight: bold;
-  width: 50%;
-}  
-
-.doc-table {
-  width: 100%;
-  text-align: left;
-}
-
-@media only screen and (max-width: 700px) {
-  mat-card {
-    max-width: 80%;
-  }
-  table.doc-table td:nth-child(2) {
-    text-align: right;
-  }  
-}
-
-.mat-button.mat-green, .mat-icon-button.mat-green {
-  color: #419c4e;
-}
-
-.mat-fab.mat-green, .mat-mini-fab.mat-green, .mat-raised-button.mat-green {
-  background-color: #419c4e;
-  color: #fff;
-}
-
-mat-card-subtitle {
-  text-align: left;
-}
-
-.invoice-image {
-  background-image: url('../../../assets/img/invoice.png');
-  background-size: cover;
+mat-card a {
+    display: block;
+    margin: 1em 0.5em;
 }
