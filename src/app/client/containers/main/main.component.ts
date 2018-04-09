@@ -5,7 +5,7 @@ import { AuthService } from '../../services';
 const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: 'material-icons home',
+    icon: 'nb-home',
     link: '/client/',
     home: true,
   },
