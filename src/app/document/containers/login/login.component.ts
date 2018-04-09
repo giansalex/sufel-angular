@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
 import { environment } from '../../../../environments/environment';
@@ -12,6 +13,7 @@ import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
   providers: [{provide: DateAdapter, useClass: SpainDateAdapter}]
 })
 export class LoginComponent implements OnInit {
+  @ViewChild("docForm") docForm: NgForm;
   hasCompany = false;
   loading = false;
   maxDate = new Date();
@@ -43,6 +45,10 @@ export class LoginComponent implements OnInit {
   }
 
   consult() {
+    if (!this.docForm.valid) {
+      return;
+    }
+
     this.loading = true;
     this.auth.login(this.doc)
     .subscribe(r => {

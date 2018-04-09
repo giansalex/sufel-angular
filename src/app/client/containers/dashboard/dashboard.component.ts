@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DocumentService } from '../../services';
@@ -10,6 +11,7 @@ import { FileSaverService } from '../../../shared/services';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild("filterForm") form: NgForm;
   filter: any = {};
   currentDoc: any;
   tipoDocs = [
@@ -42,6 +44,10 @@ export class DashboardComponent implements OnInit {
   }
 
   search() {
+    if (!this.form.valid) {
+      return;
+    }
+
     this.api.filter(this.filter)
     .subscribe(values => this.data.load(values));
   }

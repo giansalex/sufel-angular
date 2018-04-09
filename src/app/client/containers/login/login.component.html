@@ -5,7 +5,7 @@
     Login
   </mat-card-header>
   <mat-card-content>
-    <form class="example-form" #clientForm="ngForm">
+    <form #clientForm="ngForm">
         <mat-form-field class="sufel-full-width">
           <input matInput
           #rucClient
@@ -31,7 +31,7 @@
       <div class="sufel-cont-spin" [hidden]="!loading">
           <mat-spinner style="height:50px"></mat-spinner>
       </div>
-      <button mat-raised-button color="primary" [disabled]="clientForm.invalid" (click)="login()">Login</button>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
       <a class="a-register" [routerLink]="['/client/register']">Registrarse</a>
     </mat-card-actions>
 </mat-card>

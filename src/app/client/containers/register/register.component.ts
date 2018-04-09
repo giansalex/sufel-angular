@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
 import { MatSnackBar } from '@angular/material';
@@ -9,6 +10,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild("clientForm") form: NgForm;
   hide = true;
   loading = false;
   client: any = {};
@@ -24,6 +26,10 @@ export class RegisterComponent implements OnInit {
 
 
   register() {
+    if (!this.form.valid) {
+      return;
+    }
+    
     if (this.client.password != this.client.repeat_password) {
       this.showError('Las contraseñas no coinciden.');
     }
