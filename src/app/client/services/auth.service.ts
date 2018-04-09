@@ -8,6 +8,7 @@ export class AuthService {
   private JWT: any;
   private loginUri = '/api/client/login';
   private registerUri = '/api/client/register';
+  ruc: any;
 
   constructor(
    private router: Router,
@@ -40,6 +41,7 @@ export class AuthService {
    * login user
    */
   login(credencial: any) {
+    this.ruc = credencial.documento;
     return this.api.post(this.loginUri, credencial)
           .do(res => this.setJwt(res));
   }

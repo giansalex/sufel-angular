@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
+import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { AuthService } from '../../services';
+import { environment } from './../../../../environments/environment';
 
 const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -18,14 +19,23 @@ const MENU_ITEMS: NbMenuItem[] = [
 })
 export class MainComponent implements OnInit {
   menu = MENU_ITEMS;
+  ruc: string;
+  product= environment.product;
 
   constructor(
+    private sidebarService: NbSidebarService,
     private auth: AuthService
   ) { }
 
   ngOnInit() {
+    this.ruc = this.auth.ruc;
   }
 
+  toggleSidebar(): boolean {
+    this.sidebarService.toggle(true, 'menu-sidebar');
+    return false;
+  }
+  
   logout() {
     this.auth.signOut();
   }
