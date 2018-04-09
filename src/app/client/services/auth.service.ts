@@ -5,6 +5,7 @@ import { ApiService } from '../../shared/services';
 @Injectable()
 export class AuthService {
   private JWT_KEY = 'SUFEL_CLIENT';
+  private USER_KEY = 'SUFEL_USER';
   private JWT: any;
   private loginUri = '/api/client/login';
   private registerUri = '/api/client/register';
@@ -17,6 +18,10 @@ export class AuthService {
     const jwt = window.localStorage.getItem(this.JWT_KEY);
     if (jwt) {
         this.setJwt(JSON.parse(jwt));
+    }
+    const user = window.localStorage.getItem(this.USER_KEY);
+    if (user) {
+      this.ruc = JSON.parse(user).ruc;
     }
   }
 
@@ -41,9 +46,13 @@ export class AuthService {
    * login user
    */
   login(credencial: any) {
-    this.ruc = credencial.documento;
+    const current = this;
     return this.api.post(this.loginUri, credencial)
-          .do(res => this.setJwt(res));
+          .do(res => {
+            current.ruc = credencial.documento;
+            window.localStorage.setItem(current.USER_KEY, JSON.stringify({ruc: current.ruc}));
+            current.setJwt(res);
+          });
   }
 
   /**
