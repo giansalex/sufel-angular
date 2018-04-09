@@ -5,8 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../../../app-material.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../../../shared/shared.module';
 import { AuthService } from '../../services';
 import { ApiService } from '../../../shared/services';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -18,7 +20,9 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         FormsModule,
         HttpClientModule,
-        AppMaterialModule
+        NoopAnimationsModule,
+        AppMaterialModule,
+        SharedModule,
       ],
       declarations: [ LoginComponent ],
       providers: [ApiService, AuthService]

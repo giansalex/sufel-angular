@@ -7,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../../../app-material.module';
 import { ApiService } from '../../../shared/services';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -16,6 +17,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        NoopAnimationsModule,
         FormsModule,
         HttpClientModule,
         AppMaterialModule
