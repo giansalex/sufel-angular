@@ -1,9 +1,15 @@
 .a-register {
     display: block;
     text-align:center;
-    margin-top: 1.5rem;
 }
 
-.l-register {
-    vertical-align: text-bottom;
+.sufel-form.p-bottom {
+    padding-bottom: 2rem;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
 }

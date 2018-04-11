@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div>
-<mat-card class="sufel-form">
+<mat-card class="sufel-form p-bottom">
   <mat-card-header>
     <span class="center">Login</span>
   </mat-card-header>
@@ -32,7 +32,11 @@
           <mat-spinner style="height:50px"></mat-spinner>
       </div>
       <button mat-raised-button color="primary" (click)="login()">Login</button>
-      <a class="a-register" [routerLink]="['/client/register']"><i class="material-icons">create</i> <span class="l-register">Registrarse</span></a>
     </mat-card-actions>
 </mat-card>
 </div>
+<span class="done" matTooltip="Registrarse" [matTooltipPosition]="'left'">
+  <a mat-fab [routerLink]="['/client/register']">
+    <mat-icon>person_add</mat-icon>
+  </a>
+</span>
