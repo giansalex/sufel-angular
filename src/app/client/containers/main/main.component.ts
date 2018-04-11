@@ -10,6 +10,15 @@ const MENU_ITEMS: NbMenuItem[] = [
     link: '/client/',
     home: true,
   },
+  {
+    title: 'Opciones',
+    group: true,
+  },
+  {
+    title: 'Perfil',
+    icon: 'nb-edit',
+    link: '/client/perfil',
+  },
 ];
 
 @Component({

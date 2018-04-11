@@ -1,0 +1,11 @@
+.full-width {
+    flex: 1;
+    min-width: 220px;
+}
+.form-inline > * {
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+    padding-bottom: 0;
+}

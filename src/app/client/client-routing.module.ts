@@ -7,6 +7,7 @@ import {
   MainComponent,
   RegisterComponent,
 } from "./containers";
+import { ProfileComponent } from './containers/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: DashboardComponent}
+      { path: '', component: DashboardComponent},
+      { path: 'perfil', component: ProfileComponent}
     ]
   },
   { path: 'login', component: LoginComponent },

@@ -14,12 +14,18 @@ import {
 import { AppMaterialModule } from '../app-material.module';
 import { ClientRoutingModule } from './client-routing.module';
 import { SharedModule } from './../shared/shared.module';
-import { AuthService, DocumentService } from './services';
+import {
+  AuthService,
+  DocumentService,
+  ProfileService
+} from './services';
+
 import { AuthGuard } from './guards';
 import { 
   DashboardComponent,
   LoginComponent,
   MainComponent,
+  ProfileComponent,
   RegisterComponent,
  } from "./containers";
 
@@ -43,6 +49,7 @@ import {
     LoginComponent,
     MainComponent,
     RegisterComponent,
+    ProfileComponent,
   ],
   providers: [
     NbSidebarService,
@@ -52,6 +59,7 @@ import {
     AuthService,
     AuthGuard,
     DocumentService,
+    ProfileService,
   ]
 })
 export class ClientModule { }
