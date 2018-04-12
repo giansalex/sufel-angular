@@ -22,6 +22,10 @@ export class ProfileComponent {
       return;
     }
 
+    if (this.pass.new != this.pass.repeat) {
+      this.showMessage('Las contraseñas no coinciden.');
+    }
+
     this.api.changePassword(this.pass)
     .subscribe(
       res => this.showMessage("Contraseña Actualizada"),
