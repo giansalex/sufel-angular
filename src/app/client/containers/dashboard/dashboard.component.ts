@@ -93,8 +93,8 @@ export class DashboardComponent implements OnInit {
     return {
       actions: false,
       columns: {
-        id: {
-          title: 'ID'
+        emisor: {
+          title: 'Emisor'
         },
         tipo: {
           title: 'Tipo',
