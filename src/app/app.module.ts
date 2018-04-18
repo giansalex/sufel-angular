@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NbThemeModule } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import 'hammerjs';
 
 import { AppMaterialModule } from './app-material.module';
@@ -12,8 +11,6 @@ import { DocumentModule } from './document/document.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./containers";
-
-import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [
