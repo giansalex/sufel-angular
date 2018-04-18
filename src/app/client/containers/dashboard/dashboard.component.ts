@@ -13,7 +13,13 @@ import { FileSaverService } from '../../../shared/services';
 export class DashboardComponent implements OnInit {
   @ViewChild("filterForm") form: NgForm;
   filter: any = {};
+  companies = [];
   currentDoc: any;
+  select2Options: Select2Options = {
+    allowClear: true,
+    placeholder: 'Seleccionar Empresa',
+    theme: 'bootstrap'
+  };
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
     {value: '03', viewValue: 'Boleta'},
@@ -41,6 +47,8 @@ export class DashboardComponent implements OnInit {
     this.filter.end = new Date();
     this.filter.tipoDoc = '';
     this.settings = this.getColumnSettings();
+    this.api.getCompanies()
+      .subscribe(data => this.showCompanies(data));
   }
 
   search() {
@@ -48,6 +56,7 @@ export class DashboardComponent implements OnInit {
       return;
     }
 
+    console.log(this.filter);
     this.api.filter(this.filter)
     .subscribe(values => this.data.load(values));
   }
@@ -59,6 +68,10 @@ export class DashboardComponent implements OnInit {
     }
     
     this.currentDoc = event.data;
+  }
+
+  onChangeCompany(event) {
+    this.filter.emisor = event!.value;
   }
 
   downloadXml() {
@@ -84,6 +97,15 @@ export class DashboardComponent implements OnInit {
     this.api.getPdf(this.currentDoc.id)
     .subscribe(f => {
       this.saveFile(f);
+    });
+  }
+
+  private showCompanies(data: Array<any>) {
+    this.companies = data.map(item => {
+      return {
+        id: item.ruc,
+        text: item.ruc + ' - ' + item.nombre
+      };
     });
   }
 

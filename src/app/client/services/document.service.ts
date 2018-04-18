@@ -24,6 +24,10 @@ export class DocumentService {
     return this.api.getFile(this.createUrl(id, 'pdf'));
   }
 
+  getCompanies() {
+    return this.api.get('/api/client/companies');
+  }
+
   private createUrl(id, type: string) {
     return `/api/client/documents/${id}/resource/${type}`;
   }

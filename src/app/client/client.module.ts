@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Select2Module } from 'ng4-select2';
 import {
   NbSidebarModule,
   NbLayoutModule,
@@ -39,6 +40,7 @@ import {
     NbMenuModule,
     NbActionsModule,
     Ng2SmartTableModule,
+    Select2Module,
 
     AppMaterialModule,
     ClientRoutingModule,

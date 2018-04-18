@@ -6,10 +6,16 @@
     <form class="sufel-form" #filterForm="ngForm">
       <div class="row">
         <div class="col-md-12">
-            <input type="text"
-            class="form-control full-width"
-            placeholder="Ruc emisor"
-            [(ngModel)]="filter.emisor" name="emisor">
+            <div class="form-group">
+              <label>Ruc Emisor</label>
+              <select2
+              [data]="companies"
+              [width]="'100%'"
+              [cssImport]="false"
+              [options]="select2Options"
+              (valueChanged)="onChangeCompany($event)">
+              </select2>
+            </div>
         </div>
       </div>
       <div class="row">
