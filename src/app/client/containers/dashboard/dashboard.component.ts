@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
   currentDoc: any;
   select2Options: Select2Options = {
     allowClear: true,
-    placeholder: 'Seleccionar Empresa'
+    placeholder: 'Seleccionar Empresa',
+    theme: 'bootstrap'
   };
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
