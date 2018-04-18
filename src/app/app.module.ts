@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NbThemeModule } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Select2Module } from 'ng4-select2';
 
 import 'hammerjs';
 
@@ -24,6 +25,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
+    Select2Module,
 
     AppRoutingModule,
     AppMaterialModule,
