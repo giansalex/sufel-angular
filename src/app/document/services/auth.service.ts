@@ -1,6 +1,8 @@
+
+import {tap} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { ApiService } from './../../shared/services';
 
@@ -38,9 +40,9 @@ export class AuthService {
   }
 
   login(credencial: any) {
-    return this.api.post(this.authUri, credencial)
-          .do(res => this.setJwt(res))
-          .do(res => res);
+    return this.api.post(this.authUri, credencial).pipe(
+          tap(res => this.setJwt(res)),
+          tap(res => res),);
   }
 
   signOut() {
