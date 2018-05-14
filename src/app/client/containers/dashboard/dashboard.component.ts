@@ -56,7 +56,6 @@ export class DashboardComponent implements OnInit {
       return;
     }
 
-    console.log(this.filter);
     this.api.filter(this.filter)
     .subscribe(values => this.data.load(values));
   }

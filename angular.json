@@ -1,0 +1,154 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "fe-consult": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/.htaccess"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@nebular/theme/styles/prebuilt/default.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/select2/dist/css/select2.css",
+              "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
+            ],
+            "scripts": [
+              "node_modules/file-saver/FileSaver.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/select2/dist/js/select2.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fe-consult:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fe-consult:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fe-consult:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "node_modules/file-saver/FileSaver.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/select2/dist/js/select2.js"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@nebular/theme/styles/prebuilt/default.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/select2/dist/css/select2.css",
+              "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/.htaccess"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fe-consult-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "fe-consult:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fe-consult",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
+}
