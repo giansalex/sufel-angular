@@ -31,7 +31,7 @@
               "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
             ],
             "scripts": [
-              "node_modules/file-saver/FileSaver.js",
+              "node_modules/file-saver/dist/FileSaver.js",
               "node_modules/jquery/dist/jquery.js",
               "node_modules/select2/dist/js/select2.js"
             ]
