@@ -10,5 +10,5 @@ export const environment = {
   company: 'GitHub',
   companyUrl: 'https://github.com/giansalex/sufel',
   product: 'SUFEL',
-  logo: 'https://www.freeinvoicecreator.com/assets/images/feature-icon2.png',
+  logo: '../assets/img/invoice.png',
 };
