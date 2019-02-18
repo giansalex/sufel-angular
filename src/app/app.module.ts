@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NbThemeModule } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
@@ -10,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { DocumentModule } from './document/document.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from "./containers";
+import { HomeComponent } from './containers';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { HomeComponent } from "./containers";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
 
     AppRoutingModule,
     AppMaterialModule,
