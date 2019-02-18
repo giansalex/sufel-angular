@@ -23,7 +23,7 @@
     "@angular/platform-browser": "^7.0.3",
     "@angular/platform-browser-dynamic": "^7.0.3",
     "@angular/router": "^7.0.3",
-    "@nebular/theme": "3.1.0",
+    "@nebular/theme": "3.3.0",
     "@types/select2": "4.0.44",
     "bootstrap": "4.0.0",
     "core-js": "2.5.1",
