@@ -1,10 +1,8 @@
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 /* @import './theme'; */
 
-body {
-  margin: 0;
-  font-family: Roboto, sans-serif;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .sufel-cont-spin {
   margin: 0 auto;
   display: table;
