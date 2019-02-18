@@ -49,6 +49,7 @@
             placeholder="Repetir Contraseña"
             [(ngModel)]="client.repeat_password" name="repeat_password">
         </mat-form-field>
+        <span *ngIf="error" class="text-danger">{{error}}</span>
       </form>
   </mat-card-content>
   <mat-card-actions>

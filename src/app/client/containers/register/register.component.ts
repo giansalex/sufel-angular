@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -10,15 +9,15 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild("clientForm") form: NgForm;
+  @ViewChild('clientForm') form: NgForm;
   hide = true;
   loading = false;
   client: any = {};
+  error = '';
 
   constructor(
     private auth: AuthService,
-    private router: Router,
-    public snackBar: MatSnackBar
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -29,9 +28,9 @@ export class RegisterComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-    
-    if (this.client.password != this.client.repeat_password) {
-      this.showError('Las contraseñas no coinciden.');
+
+    if (this.client.password !== this.client.repeat_password) {
+      this.setError('Las contraseñas no coinciden.');
     }
 
     this.loading = true;
@@ -44,17 +43,15 @@ export class RegisterComponent implements OnInit {
     .add(() => this.loading = false);
   }
 
-  private showError(message: string) {
-    this.snackBar.open(message, 'ACEPTAR', {
-      duration: 2000,
-    });
+  private setError(message: string) {
+    this.error = message;
   }
 
   private handleError(er) {
     if (er.error && er.error.message) {
-      this.showError(er.error.message);
+      this.setError(er.error.message);
       return;
     }
-    this.showError('Datos incorrectos');
+    this.setError('Datos incorrectos');
   }
 }
