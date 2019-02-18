@@ -10,6 +10,7 @@ import {
   NbCardModule,
   NbMenuModule,
   NbActionsModule,
+  NbThemeModule,
 } from '@nebular/theme';
 
 import { AppMaterialModule } from '../app-material.module';
@@ -22,18 +23,19 @@ import {
 } from './services';
 
 import { AuthGuard } from './guards';
-import { 
+import {
   DashboardComponent,
   LoginComponent,
   MainComponent,
   ProfileComponent,
   RegisterComponent,
- } from "./containers";
+ } from './containers';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbSidebarModule,
     NbCardModule,
