@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
@@ -10,7 +10,8 @@ import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [{provide: DateAdapter, useClass: SpainDateAdapter}]
+  providers: [{provide: DateAdapter, useClass: SpainDateAdapter}],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
   @ViewChild("docForm") docForm: NgForm;
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     public snackBar: MatSnackBar,
-    private dateAdapter: DateAdapter<Date>
+    private dateAdapter: DateAdapter<Date>,
+    private ref: ChangeDetectorRef
   ) {
     this.dateAdapter.setLocale('es');
   }
@@ -51,10 +53,13 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.auth.login(this.doc)
-    .subscribe(r => {
-      this.router.navigate(['/document']);
-    }, er => this.showError('No se encontro resultados.'))
-    .add(() => this.loading = false);
+    .subscribe(
+      () => this.router.navigate(['/document']),
+      () => this.showError('No se encontro resultados.'))
+    .add(() => {
+      this.loading = false;
+      this.ref.detectChanges();
+    });
   }
 
   showError(message: string) {

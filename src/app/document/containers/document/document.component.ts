@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DocumentService, AuthService } from '../../services';
 import { MatSnackBar } from '@angular/material';
 import { FileSaverService } from '../../../shared/services';
@@ -6,7 +6,8 @@ import { FileSaverService } from '../../../shared/services';
 @Component({
   selector: 'app-home',
   templateUrl: './document.component.html',
-  styleUrls: ['./document.component.css']
+  styleUrls: ['./document.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentComponent implements OnInit {
   doc: any;
@@ -14,16 +15,18 @@ export class DocumentComponent implements OnInit {
     private auth: AuthService,
     private client: DocumentService,
     private saver: FileSaverService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this.client.getInfo()
       .subscribe(
-        r => this.doc = r,
-        er => {
-          this.logout();
-        });
+        data => {
+          this.doc = data;
+          this.ref.detectChanges();
+        },
+        () => this.logout());
   }
 
   downloadXml() {
