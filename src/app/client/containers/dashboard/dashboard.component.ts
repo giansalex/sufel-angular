@@ -101,6 +101,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  trackByFn(index, item) {
+    if (!item) return null;
+
+    return item.value;
+  }
+
   private showCompanies(data: Array<any>) {
     this.companies = data.map(item => {
       return {
