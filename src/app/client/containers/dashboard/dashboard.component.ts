@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -8,7 +8,8 @@ import { FileSaverService } from '../../../shared/services';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
   @ViewChild("filterForm") form: NgForm;
@@ -39,7 +40,8 @@ export class DashboardComponent implements OnInit {
   constructor (
     private api: DocumentService,
     private saver: FileSaverService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -106,6 +108,8 @@ export class DashboardComponent implements OnInit {
         text: item.ruc + ' - ' + item.nombre
       };
     });
+
+    this.ref.detectChanges();
   }
 
   private getColumnSettings() {

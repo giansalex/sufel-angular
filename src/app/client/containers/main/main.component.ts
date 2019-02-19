@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { AuthService } from '../../services';
 import { environment } from './../../../../environments/environment';
@@ -24,7 +24,8 @@ const MENU_ITEMS: NbMenuItem[] = [
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
   menu = MENU_ITEMS;

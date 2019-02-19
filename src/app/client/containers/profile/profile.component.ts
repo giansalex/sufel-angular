@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { ProfileService } from '../../services';
@@ -6,7 +6,8 @@ import { ProfileService } from '../../services';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileComponent {
   pass: any = {};
@@ -14,7 +15,8 @@ export class ProfileComponent {
 
   constructor(
     private api: ProfileService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private ref: ChangeDetectorRef
   ) { }
 
   changePassword() {
@@ -24,11 +26,16 @@ export class ProfileComponent {
 
     if (this.pass.new != this.pass.repeat) {
       this.showMessage('Las contraseñas no coinciden.');
+      return;
     }
 
     this.api.changePassword(this.pass)
     .subscribe(
-      res => this.showMessage("Contraseña Actualizada"),
+      res => {
+        this.pass = {};
+        this.showMessage("Contraseña Actualizada");
+        this.ref.detectChanges();
+      },
       err => this.handleError(err)
     );
   }
