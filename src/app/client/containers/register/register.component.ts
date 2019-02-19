@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
@@ -6,7 +6,8 @@ import { AuthService } from '../../services';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('clientForm') form: NgForm;
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -25,6 +27,8 @@ export class RegisterComponent implements OnInit {
 
 
   register() {
+    this.setError('');
+
     if (!this.form.valid) {
       return;
     }
@@ -40,7 +44,10 @@ export class RegisterComponent implements OnInit {
     }, er => {
       this.handleError(er);
     })
-    .add(() => this.loading = false);
+    .add(() => {
+      this.loading = false;
+      this.ref.detectChanges();
+    });
   }
 
   private setError(message: string) {
