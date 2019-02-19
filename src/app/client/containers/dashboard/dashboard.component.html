@@ -25,7 +25,7 @@
             <select class="form-control"
             [(ngModel)]="filter.tipoDoc" name="tipoDoc">
               <option value="">Todos</option>
-              <option *ngFor="let tipo of tipoDocs" value="{{tipo.value}}">{{tipo.viewValue}}</option>
+              <option *ngFor="let tipo of tipoDocs; trackBy: tipo?.value" value="{{tipo.value}}">{{tipo.viewValue}}</option>
             </select>
           </div>
         </div>
