@@ -5,5 +5,5 @@ export const environment = {
   company: 'GitHub',
   companyUrl: 'https://github.com/giansalex/sufel',
   product: 'SUFEL',
-  logo: '',
+  logo: '../assets/img/invoice.png',
 };
