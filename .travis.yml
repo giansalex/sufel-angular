@@ -1,12 +1,11 @@
 language: node_js
 sudo: true
 node_js:
-  - "8.10"
-
+- '8.10'
 branches:
   only:
-    - master
-    - /^greenkeeper/.*$/
+  - master
+  - "/^greenkeeper/.*$/"
 
 # before_install:
 #  - export CHROME_BIN=/usr/bin/google-chrome
@@ -18,8 +17,11 @@ branches:
 #  - sudo dpkg -i google-chrome*.deb
 
 before_script:
-  - npm install -g @angular/cli
-
+- npm install -g @angular/cli
 script:
-#  - ng test --watch false
-  - ng build --prod --aot
+- ng build --prod --aot
+
+deploy:
+  provider: firebase
+  token:
+    secure: ZxXMQ49y9VQn9RzL2O726FIhGRCnwDuSs8cNLMg0qGyLNQvJO1gQ/Na4DR9lPnFkBvHNi+BxCKSF3YBQ+/9qsXgW7sMXqyS8duOIIuCONUkeK4wiYoCQHwEteO0YjNrQgHN7gz9LZGDFgjt6K1iMEYPWAKU2Pwuj0WD6dU7Te2nPE1XeZbZmOO8PLGvGUL0qwEk9uYOlJPoAe1eSnLmtYR5VRAx22F/kT2aGehgpCGHd6DDZfdpbN5/ZahF0i21tE2j9Q32NBBSrMebyHnsfbyFy3ZWYpMbSlf65mYKpA0BjokYw7UUzWwfAAIJDhTmVvXYhaBebK05WGHcxVrA8rOs3TZSTRmeGn5joYT4RgwbGbbktrwazLf6znVU8vcBmzrskDjxXMAN79qb5ZphmkLE3Fk/aTlr3Szhi9QBFvMBjAfbn4tvxlxWSRmt0yc85kNgs2yj+9UbLYMyaLWM/pc+QsnxQM24iztw3GVL1LgIxeld6LHsbKfbZUWe3bs1hRq2Ggh97O5nDCVQBCBRbRjhBmi4SMAXy+rI9Z8T00B0VtedDBAWCsJAEzKXXJVxgEa30Fn0CQVmHpZ5B76uRGZNMLOVAIYcIxbaHHLhSR76tAf9WU8ARIh84ISC9x9A+GvlOaxy6Cg+EsGeANwwJFzv/BiPePmaBtVh7pkzEcPM=
