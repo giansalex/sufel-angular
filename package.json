@@ -46,7 +46,7 @@
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
     "@schematics/angular": "~7.3.2",
-    "@types/jasmine": "~2.8.8",
+    "@types/jasmine": "~3.3.10",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~11.11.0",
     "codelyzer": "~4.5.0",
