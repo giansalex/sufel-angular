@@ -26,7 +26,7 @@
     "@nebular/theme": "3.4.1",
     "@types/select2": "4.0.44",
     "bootstrap": "^4.3.1",
-    "core-js": "2.5.1",
+    "core-js": "3.0.0",
     "file-saver": "^2.0.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
