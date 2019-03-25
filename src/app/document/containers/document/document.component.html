@@ -3,9 +3,14 @@
     <mat-icon>add</mat-icon>
   </button>
 </span>
-<div *ngIf="!doc" class="sufel-cont-spin">
+<ng-container *ngIf="doc$ | async; then loaded; else loading">
+</ng-container>
+<ng-template #loading>
+  <div class="sufel-cont-spin">
     <mat-spinner></mat-spinner>
 </div>
+</ng-template>
+<ng-template #loaded>
 <mat-card *ngIf="doc">
   <mat-card-header>
       <div mat-card-avatar class="invoice-image"></div>
@@ -45,8 +50,9 @@
        </tbody>
      </table>
   </mat-card-content>
-  <mat-card-actions>  
+  <mat-card-actions>
       <button mat-raised-button (click)="downloadXml()" color="green"><mat-icon>cloud_download</mat-icon> XML</button>
       <button mat-raised-button (click)="downloadPdf()" color="warn"><mat-icon>cloud_download</mat-icon> PDF</button>
     </mat-card-actions>
 </mat-card>
+</ng-template>

@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentService, AuthService } from '../../services';
 import { MatSnackBar } from '@angular/material';
 import { FileSaverService } from '../../../shared/services';
@@ -10,23 +11,21 @@ import { FileSaverService } from '../../../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentComponent implements OnInit {
+  doc$: Observable<any>;
   doc: any;
   constructor(
     private auth: AuthService,
     private client: DocumentService,
     private saver: FileSaverService,
-    public snackBar: MatSnackBar,
-    private ref: ChangeDetectorRef
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.client.getInfo()
-      .subscribe(
-        data => {
-          this.doc = data;
-          this.ref.detectChanges();
-        },
-        () => this.logout());
+    this.doc$ = this.client.getInfo();
+    this.doc$.subscribe(
+      data => this.doc = data,
+      () => this.logout()
+    );
   }
 
   downloadXml() {
@@ -80,7 +79,7 @@ export class DocumentComponent implements OnInit {
     }
   }
 
-  private saveFile(file) {
+  private saveFile(file: Blob) {
     this.saver.saveAs(file, this.doc.filename);
   }
 }
