@@ -7,7 +7,7 @@ export class FileSaverService {
 
   constructor() { }
 
-  saveAs(blob, filename) {
+  saveAs(blob: Blob, filename: string) {
     saveAs(blob, filename);
   }
 }
