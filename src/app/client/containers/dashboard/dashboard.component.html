@@ -9,7 +9,7 @@
             <div class="form-group">
               <label>Ruc Emisor</label>
               <select2
-              [data]="companies"
+              [data]="companies$ | async"
               [width]="'100%'"
               [cssImport]="false"
               [options]="select2Options"

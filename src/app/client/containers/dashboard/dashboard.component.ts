@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DocumentService } from '../../services';
 import { FileSaverService } from '../../../shared/services';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +14,9 @@ import { FileSaverService } from '../../../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild("filterForm") form: NgForm;
+  @ViewChild('filterForm') form: NgForm;
   filter: any = {};
-  companies = [];
+  companies$: Observable<any>;
   currentDoc: any;
   select2Options: Select2Options = {
     allowClear: true,
@@ -35,13 +37,12 @@ export class DashboardComponent implements OnInit {
   };
   settings = null;
 
-  data = new LocalDataSource();;
+  data = new LocalDataSource();
 
   constructor (
     private api: DocumentService,
     private saver: FileSaverService,
-    public snackBar: MatSnackBar,
-    private ref: ChangeDetectorRef
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -49,8 +50,13 @@ export class DashboardComponent implements OnInit {
     this.filter.end = new Date();
     this.filter.tipoDoc = '';
     this.settings = this.getColumnSettings();
-    this.api.getCompanies()
-      .subscribe(data => this.showCompanies(data));
+    this.companies$ = this.api.getCompanies()
+      .pipe(map(items => items.map(item => {
+        return {
+          id: item.ruc,
+          text: item.ruc + ' - ' + item.nombre
+        };
+      })));
   }
 
   search() {
@@ -61,18 +67,18 @@ export class DashboardComponent implements OnInit {
     this.api.filter(this.filter)
     .subscribe(values => this.data.load(values));
   }
-  
-  onSelect(event) {
+
+  onSelect(event: any) {
     if (!event.isSelected) {
       this.currentDoc = null;
       return;
     }
-    
+
     this.currentDoc = event.data;
   }
 
-  onChangeCompany(event) {
-    this.filter.emisor = event!.value;
+  onChangeCompany(event: any) {
+    this.filter.emisor = event.value;
   }
 
   downloadXml() {
@@ -101,21 +107,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  trackByFn(index, item) {
-    if (!item) return null;
+  trackByFn(index: number, item: any) {
+    if (!item) { return null; }
 
     return item.value;
-  }
-
-  private showCompanies(data: Array<any>) {
-    this.companies = data.map(item => {
-      return {
-        id: item.ruc,
-        text: item.ruc + ' - ' + item.nombre
-      };
-    });
-
-    this.ref.detectChanges();
   }
 
   private getColumnSettings() {
@@ -133,7 +128,7 @@ export class DashboardComponent implements OnInit {
             if (siglas[cell]) {
               return siglas[cell];
             }
-  
+
             return cell;
           }
         },
@@ -168,7 +163,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  private saveFile(file) {
+  private saveFile(file: Blob) {
     this.saver.saveAs(file, this.currentDoc.filename);
   }
 }
