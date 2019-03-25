@@ -164,6 +164,14 @@ export class DashboardComponent implements OnInit {
   }
 
   private saveFile(file: Blob) {
-    this.saver.saveAs(file, this.currentDoc.filename);
+    const doc = this.currentDoc;
+    const filename = [
+      doc.emisor,
+      doc.tipo,
+      doc.serie,
+      doc.correlativo
+    ].join('-');
+
+    this.saver.saveAs(file, filename);
   }
 }
