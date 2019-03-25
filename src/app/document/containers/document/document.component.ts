@@ -70,7 +70,7 @@ export class DocumentComponent implements OnInit {
   getTipo(code: string) {
     switch (code) {
       case '03':
-        return 'BOLETA ELECTRÓNICA';
+        return 'BOLETA DE VENTA ELECTRÓNICA';
       case '07':
         return 'NOTA DE CRÉDITO ELECTRÓNICA';
       case '08':
