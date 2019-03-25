@@ -11,7 +11,7 @@ import { ProfileService } from '../../services';
 })
 export class ProfileComponent {
   pass: any = {};
-  @ViewChild("passForm") form: NgForm;
+  @ViewChild('passForm') form: NgForm;
 
   constructor(
     private api: ProfileService,
@@ -24,7 +24,7 @@ export class ProfileComponent {
       return;
     }
 
-    if (this.pass.new != this.pass.repeat) {
+    if (this.pass.new !== this.pass.repeat) {
       this.showMessage('Las contraseñas no coinciden.');
       return;
     }
@@ -33,7 +33,7 @@ export class ProfileComponent {
     .subscribe(
       res => {
         this.pass = {};
-        this.showMessage("Contraseña Actualizada");
+        this.showMessage('Contraseña Actualizada');
         this.ref.detectChanges();
       },
       err => this.handleError(err)

@@ -30,7 +30,7 @@ const MENU_ITEMS: NbMenuItem[] = [
 export class MainComponent implements OnInit {
   menu = MENU_ITEMS;
   ruc: string;
-  product= environment.product;
+  product = environment.product;
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
     this.sidebarService.toggle(true, 'menu-sidebar');
     return false;
   }
-  
+
   logout() {
     this.auth.signOut();
   }
