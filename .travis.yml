@@ -20,6 +20,7 @@ branches:
 before_script:
 - npm install -g @angular/cli
 script:
+- ng lint --type-check
 - ng build --prod --aot
 
 deploy:
