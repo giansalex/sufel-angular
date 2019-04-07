@@ -33,7 +33,7 @@ describe('DashboardComponent', () => {
         NbMenuModule,
         NbActionsModule,
         Ng2SmartTableModule,
-    
+
         AppMaterialModule,
         SharedModule,
       ],
@@ -42,7 +42,7 @@ describe('DashboardComponent', () => {
         NbSidebarService,
         ...NbSidebarModule.forRoot().providers,
         ...NbMenuModule.forRoot().providers,
-    
+
         AuthService,
         DocumentService,
       ]

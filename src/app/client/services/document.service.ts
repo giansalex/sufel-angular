@@ -3,7 +3,7 @@ import { ApiService } from '../../shared/services';
 
 @Injectable()
 export class DocumentService {
-  
+
   constructor(
     private api: ApiService
   ) {}

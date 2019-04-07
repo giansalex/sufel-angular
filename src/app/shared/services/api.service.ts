@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 export class ApiService {
   private apiEndpoint = environment.endpoint;
 
-  headers= new HttpHeaders({
+  headers = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Accept' : 'application/json'
   });

@@ -14,12 +14,12 @@ import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  @ViewChild("docForm") docForm: NgForm;
+  @ViewChild('docForm') docForm: NgForm;
   hasCompany = false;
   loading = false;
   maxDate = new Date();
   doc: any = {};
-  logo= environment.logo;
+  logo = environment.logo;
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
     {value: '03', viewValue: 'Boleta'},

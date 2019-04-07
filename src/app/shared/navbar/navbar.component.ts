@@ -7,9 +7,9 @@ import { environment } from './../../../environments/environment';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  company= environment.company;
+  company = environment.company;
   companyUrl = environment.companyUrl;
-  product= environment.product;
-  logo= environment.logo;
+  product = environment.product;
+  logo = environment.logo;
 
 }

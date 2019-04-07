@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards';
-import { 
+import {
   DashboardComponent,
   LoginComponent,
   MainComponent,
   RegisterComponent,
-} from "./containers";
+} from './containers';
 import { ProfileComponent } from './containers/profile/profile.component';
 
 const routes: Routes = [

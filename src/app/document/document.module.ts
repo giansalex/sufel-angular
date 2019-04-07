@@ -11,7 +11,7 @@ import {
   DocumentComponent,
   LoginComponent,
   MainComponent,
-} from "./containers";
+} from './containers';
 
 @NgModule({
   imports: [

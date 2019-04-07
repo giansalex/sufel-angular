@@ -1,5 +1,5 @@
 
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../shared/services';
@@ -49,12 +49,14 @@ export class AuthService {
    */
   login(credencial: any) {
     const current = this;
-    return this.api.post(this.loginUri, credencial).pipe(
+    return this.api.post(this.loginUri, credencial)
+      .pipe(
           tap(res => {
             current.ruc = credencial.documento;
             window.localStorage.setItem(current.USER_KEY, JSON.stringify({ruc: current.ruc}));
             current.setJwt(res);
-          }));
+          })
+      );
   }
 
   /**
@@ -63,7 +65,7 @@ export class AuthService {
   register(credencial: any) {
     return this.api.post(this.registerUri, credencial);
   }
-  
+
   signOut() {
     window.localStorage.removeItem(this.JWT_KEY);
     this.JWT = null;

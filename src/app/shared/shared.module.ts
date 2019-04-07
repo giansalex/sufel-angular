@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppMaterialModule } from './../app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FileSaverService } from "./services";
+import { FileSaverService } from './services';
 import { UppercaseDirective } from './directives/uppercase.directive';
 
 @NgModule({
