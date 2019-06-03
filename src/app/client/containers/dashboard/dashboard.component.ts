@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('filterForm') form: NgForm;
+  @ViewChild('filterForm', { static: false }) form: NgForm;
   filter: any = {};
   companies$: Observable<any>;
   currentDoc: any;

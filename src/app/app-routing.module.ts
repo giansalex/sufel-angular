@@ -7,8 +7,8 @@ import {
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'client', loadChildren: './client/client.module#ClientModule'},
-  { path: 'document', loadChildren: './document/document.module#DocumentModule'},
+  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
+  { path: 'document', loadChildren: () => import('./document/document.module').then(m => m.DocumentModule) },
   { path: '**', redirectTo: ''}
 ];
 
