@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fe-consult": {
+    "sufel": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fe-consult:build"
+            "browserTarget": "sufel:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fe-consult:build:production"
+              "browserTarget": "sufel:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fe-consult:build"
+            "browserTarget": "sufel:build"
           }
         },
         "test": {
@@ -137,5 +137,5 @@
       }
     }
   },
-  "defaultProject": "fe-consult"
+  "defaultProject": "sufel"
 }
