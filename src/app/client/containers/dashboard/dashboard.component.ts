@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
 
   data = new LocalDataSource();
 
-  constructor (
+  constructor(
     private api: DocumentService,
     private saver: FileSaverService,
     public snackBar: MatSnackBar
@@ -124,7 +124,7 @@ export class DashboardComponent implements OnInit {
         },
         tipo: {
           title: 'Tipo',
-          valuePrepareFunction: function (cell, row) {
+          valuePrepareFunction: (cell, row) => {
             if (siglas[cell]) {
               return siglas[cell];
             }

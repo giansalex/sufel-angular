@@ -12,11 +12,11 @@ export class ApiService {
 
   headers = new HttpHeaders({
       'Content-Type' : 'application/json',
-      'Accept' : 'application/json'
+      Accept : 'application/json'
   });
   constructor(private http: HttpClient) { }
 
-  private handleError<T> () {
+  private handleError<T>() {
     return (error: any): Observable<T> => {
       console.error(error);
       // this.log(`${operation} failed: ${error.message}`);
@@ -40,9 +40,9 @@ export class ApiService {
     )
     .pipe(
       map(r => {
-        const options = {};
+        const options = {type: ''};
         if (r.headers.has('content-type')) {
-          options['type'] = r.headers.get('content-type');
+          options.type = r.headers.get('content-type');
         }
         return new Blob([r.body], options);
       }),
