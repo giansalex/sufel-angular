@@ -50,7 +50,7 @@ export class ApiService {
     );
   }
 
-  post(path, body): Observable<any> {
+  post(path: string, body: any): Observable<any> {
     return this.http.post(
         `${this.apiEndpoint}${path}`,
         JSON.stringify(body),
@@ -69,7 +69,7 @@ export class ApiService {
     );
   }
 
-  setHeaders(headers) {
+  setHeaders(headers: {}) {
     Object.keys(headers)
     .forEach(header => this.headers = this.headers.set(header, [headers[header]]));
   }
