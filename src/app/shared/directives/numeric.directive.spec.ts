@@ -1,7 +1,7 @@
 import { NumericDirective } from './numeric.directive';
 import { ElementRef } from '@angular/core';
 
-let elRef: ElementRef;
+const elRef: ElementRef = null;
 
 describe('NumericDirective', () => {
   it('should create an instance', () => {

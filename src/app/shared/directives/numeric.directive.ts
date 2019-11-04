@@ -1,11 +1,11 @@
 import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[numeric]'
+  selector: '[appNumeric]'
 })
 export class NumericDirective {
 
-  @Input('numericType') numericType: string; // number | decimal
+  @Input() numericType: string; // number | decimal
 
   private regex = {
       number: new RegExp(/^\d+$/),
@@ -26,9 +26,9 @@ export class NumericDirective {
       if (this.specialKeys[this.numericType].indexOf(event.key) !== -1) {
           return;
       }
-      
-      let current: string = this.el.nativeElement.value;
-      let next: string = current.concat(event.key);
+
+      const current: string = this.el.nativeElement.value;
+      const next: string = current.concat(event.key);
       if (next && !String(next).match(this.regex[this.numericType])) {
           event.preventDefault();
       }
