@@ -6,6 +6,7 @@ import { AppMaterialModule } from './../app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FileSaverService } from './services';
 import { UppercaseDirective } from './directives/uppercase.directive';
+import { NumericDirective } from './directives/numeric.directive';
 
 @NgModule({
   imports: [
@@ -14,8 +15,8 @@ import { UppercaseDirective } from './directives/uppercase.directive';
 
     AppMaterialModule,
   ],
-  declarations: [NavbarComponent, UppercaseDirective],
-  exports: [NavbarComponent, UppercaseDirective],
+  declarations: [NavbarComponent, UppercaseDirective, NumericDirective],
+  exports: [NavbarComponent, UppercaseDirective, NumericDirective],
   providers: [FileSaverService]
 })
 export class SharedModule { }
