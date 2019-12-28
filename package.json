@@ -36,7 +36,7 @@
     "node-sass": "^4.12.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
-    "rxjs-compat": "6.5.3",
+    "rxjs-compat": "6.5.4",
     "select2": "^4.0.6-rc.1",
     "select2-bootstrap-theme": "0.1.0-beta.10",
     "zone.js": "~0.9.1"
@@ -46,7 +46,7 @@
     "@angular/cli": "~8.3.6",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
-    "@types/node": "~12.12.0",
+    "@types/node": "~13.1.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "^5.0.0",
