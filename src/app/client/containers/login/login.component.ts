@@ -10,7 +10,7 @@ import { AuthService } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('clientForm', { static: false }) form: NgForm;
+  @ViewChild('clientForm') form: NgForm;
   hide = true;
   loading = false;
   client: any = {};
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   private handleError(er) {
-    if (er.error && er.error.message) {
+    if (er.error?.message) {
       this.setError(er.error.message);
       return;
     }

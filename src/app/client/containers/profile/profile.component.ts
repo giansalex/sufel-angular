@@ -11,7 +11,7 @@ import { ProfileService } from '../../services';
 })
 export class ProfileComponent {
   pass: any = {};
-  @ViewChild('passForm', { static: false }) form: NgForm;
+  @ViewChild('passForm') form: NgForm;
 
   constructor(
     private api: ProfileService,

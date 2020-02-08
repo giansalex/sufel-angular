@@ -14,7 +14,7 @@ import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('docForm', {static: false}) docForm: NgForm;
+  @ViewChild('docForm') docForm: NgForm;
   hasCompany = false;
   loading = false;
   maxDate = new Date();
