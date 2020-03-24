@@ -1,10 +1,12 @@
 <nb-layout windowMode>
   <nb-layout-header fixed>
-    <a href="#" (click)="toggleSidebar()" class="navigation"><i class="nb-menu"></i></a>
+    <a href="#" (click)="toggleSidebar()" class="navigation">
+      <nb-icon icon="menu-outline"></nb-icon>
+    </a>
     <span class="logo header">{{product}}</span>
     <div class="header-container right">
       <span class="logout" (click)="logout()" title="Salir">
-          <i class="nb-close ico-logout"></i>
+        <nb-icon icon="close-outline" class="ico-logout"></nb-icon>
       </span>
     </div>
   </nb-layout-header>

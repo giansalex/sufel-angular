@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProfileService } from '../../services';
 
 @Component({
@@ -11,7 +11,7 @@ import { ProfileService } from '../../services';
 })
 export class ProfileComponent {
   pass: any = {};
-  @ViewChild('passForm', { static: false }) form: NgForm;
+  @ViewChild('passForm') form: NgForm;
 
   constructor(
     private api: ProfileService,

@@ -10,7 +10,7 @@ import { AuthService } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('clientForm', { static: false }) form: NgForm;
+  @ViewChild('clientForm') form: NgForm;
   hide = true;
   loading = false;
   client: any = {};

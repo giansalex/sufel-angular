@@ -12,6 +12,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/sufel",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,7 +28,6 @@
               "src/theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
               "node_modules/select2/dist/css/select2.css",
               "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
             ],
@@ -59,6 +59,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
