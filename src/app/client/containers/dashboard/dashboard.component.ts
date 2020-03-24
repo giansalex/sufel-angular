@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DocumentService } from '../../services';
 import { FileSaverService } from '../../../shared/services';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as select2 from 'Select2';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
   filter: any = {};
   companies$: Observable<any>;
   currentDoc: any;
-  select2Options: Select2Options = {
+  select2Options: select2.Options = {
     allowClear: true,
     placeholder: 'Seleccionar Empresa',
     theme: 'bootstrap'
@@ -78,7 +79,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onChangeCompany(event: any) {
-    this.filter.emisor = event.value;
+    this.filter.emisor = event;
   }
 
   downloadXml() {

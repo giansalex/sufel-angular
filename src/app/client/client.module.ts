@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { Select2Module } from 'ng4-select2';
+import { NgSelect2Module } from 'ng-select2';
+
 import {
+  NbIconModule,
+  NbDatepickerModule,
   NbSidebarModule,
   NbLayoutModule,
   NbSidebarService,
@@ -12,6 +15,7 @@ import {
   NbActionsModule,
   NbThemeModule,
 } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { AppMaterialModule } from '../app-material.module';
 import { ClientRoutingModule } from './client-routing.module';
@@ -36,13 +40,17 @@ import {
     CommonModule,
     FormsModule,
     NbThemeModule.forRoot({ name: 'default' }),
+    NbDatepickerModule.forRoot(),
+    NbDatepickerModule,
+    NbEvaIconsModule,
+    NbIconModule,
     NbLayoutModule,
     NbSidebarModule,
     NbCardModule,
     NbMenuModule,
     NbActionsModule,
     Ng2SmartTableModule,
-    Select2Module,
+    NgSelect2Module,
 
     AppMaterialModule,
     ClientRoutingModule,

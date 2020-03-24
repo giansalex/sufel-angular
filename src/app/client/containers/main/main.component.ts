@@ -6,7 +6,7 @@ import { environment } from './../../../../environments/environment';
 const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: 'nb-home',
+    icon: 'home',
     link: '/client/',
     home: true,
   },
@@ -16,7 +16,7 @@ const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Perfil',
-    icon: 'nb-edit',
+    icon: { icon: 'person-outline', pack: 'eva' },
     link: '/client/perfil',
   },
 ];

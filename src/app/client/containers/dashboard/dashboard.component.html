@@ -8,13 +8,12 @@
         <div class="col-md-12">
             <div class="form-group">
               <label>Ruc Emisor</label>
-              <select2
+              <ng-select2
               [data]="companies$ | async"
               [width]="'100%'"
-              [cssImport]="false"
               [options]="select2Options"
               (valueChanged)="onChangeCompany($event)">
-              </select2>
+              </ng-select2>
             </div>
         </div>
       </div>
@@ -51,22 +50,24 @@
       <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label">Fecha Inicio</label>
-              <input type="date"
-              class="form-control"
-              required
-              [ngModel]="filter.start | date:'yyyy-MM-dd'"
-              (ngModelChange)="filter.start = $event" name="start">
+              <input nbInput
+                     placeholder="Fecha Inicio"
+                     name="end"
+                     class="form-control"
+                     [nbDatepicker]="dateStart"
+                     [(ngModel)]="filter.start">
+              <nb-datepicker #dateStart></nb-datepicker>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label">Fecha Fin</label>
-              <input type="date"
+              <input nbInput
+              placeholder="Fecha Fin"
+              name="end"
               class="form-control"
-              required
-              [ngModel]="filter.end | date:'yyyy-MM-dd'"
-              (ngModelChange)="filter.end = $event" name="end">
+              [nbDatepicker]="dateEnd"
+              [(ngModel)]="filter.end">
+             <nb-datepicker #dateEnd></nb-datepicker>
             </div>
           </div>
       </div>

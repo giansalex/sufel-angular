@@ -3,8 +3,9 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services';
 import { environment } from '../../../../environments/environment';
-import { MatSnackBar, DateAdapter } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SpainDateAdapter } from '../../adapter/SpainDateAdapter';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-login',
