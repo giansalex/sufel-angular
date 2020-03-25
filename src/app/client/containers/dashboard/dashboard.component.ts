@@ -6,7 +6,7 @@ import { DocumentService } from '../../services';
 import { FileSaverService } from '../../../shared/services';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as select2 from 'Select2';
+import * as select2 from 'select2';
 
 @Component({
   selector: 'app-dashboard',
