@@ -27,14 +27,10 @@
               "src/styles.css",
               "src/theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "node_modules/select2/dist/css/select2.css",
-              "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
+              "node_modules/@nebular/theme/styles/prebuilt/default.css"
             ],
             "scripts": [
-              "node_modules/file-saver/dist/FileSaver.js",
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/select2/dist/js/select2.js"
+              "node_modules/file-saver/dist/FileSaver.js"
             ]
           },
           "configurations": {
@@ -93,18 +89,13 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "scripts": [
-              "node_modules/file-saver/FileSaver.js",
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/select2/dist/js/select2.js"
+              "node_modules/file-saver/FileSaver.js"
             ],
             "styles": [
               "src/styles.css",
               "src/theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/@nebular/theme/styles/prebuilt/default.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
-              "node_modules/select2/dist/css/select2.css",
-              "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.css"
+              "node_modules/@nebular/theme/styles/prebuilt/default.css"
             ],
             "assets": [
               "src/assets",

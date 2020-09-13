@@ -6,7 +6,6 @@ import { DocumentService } from '../../services';
 import { FileSaverService } from '../../../shared/services';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as select2 from 'select2';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,11 +18,6 @@ export class DashboardComponent implements OnInit {
   filter: any = {};
   companies$: Observable<any>;
   currentDoc: any;
-  select2Options: select2.Options = {
-    allowClear: true,
-    placeholder: 'Seleccionar Empresa',
-    theme: 'bootstrap'
-  };
   tipoDocs = [
     {value: '01', viewValue: 'Factura'},
     {value: '03', viewValue: 'Boleta'},
@@ -79,7 +73,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onChangeCompany(event: any) {
-    this.filter.emisor = event;
+    this.filter.emisor = event.id;
   }
 
   downloadXml() {
