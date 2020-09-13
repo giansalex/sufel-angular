@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-// import { NgSelect2Module } from 'ng-select2';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import {
   NbIconModule,
@@ -50,7 +50,7 @@ import {
     NbMenuModule,
     NbActionsModule,
     Ng2SmartTableModule,
-    // NgSelect2Module,
+    NgSelectModule,
 
     AppMaterialModule,
     ClientRoutingModule,

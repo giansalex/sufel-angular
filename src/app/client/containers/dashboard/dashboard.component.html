@@ -8,12 +8,13 @@
         <div class="col-md-12">
             <div class="form-group">
               <label>Ruc Emisor</label>
-              <ng-select2
-              [data]="companies$ | async"
-              [width]="'100%'"
-              [options]="select2Options"
-              (valueChanged)="onChangeCompany($event)">
-              </ng-select2>
+              <ng-select
+              placeholder="Seleccionar Empresa"
+              [items]="companies$ | async"
+              bindLabel="text"
+              bindValue="id"
+              (change)="onChangeCompany($event)">
+              </ng-select>
             </div>
         </div>
       </div>

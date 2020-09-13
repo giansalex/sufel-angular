@@ -25,6 +25,7 @@
     "@angular/router": "^10.1.1",
     "@nebular/eva-icons": "^6.0.0",
     "@nebular/theme": "^6.0.0",
+    "@ng-select/ng-select": "^5.0.1",
     "@types/select2": "^4.0.48",
     "bootstrap": "^4.4.1",
     "eva-icons": "^1.1.3",
